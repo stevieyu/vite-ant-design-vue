@@ -5,13 +5,12 @@
     "build": "vite build"
   },
   "dependencies": {
-    "vue": "^3.0.0-beta.14",
-    "vue-router": "^4.0.0-alpha.11",
-    "vuex": "^4.0.0-beta.2"
+    "vue": "^3.0.0-beta.20",
+    "vue-router": "^4.0.0-beta.2",
+    "vuex": "^4.0.0-beta.4"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0-beta.14",
-    "sass": "^1.26.5",
-    "vite": "^0.15.0"
+    "sass": "^1.26.10",
+    "vite": "^1.0.0-beta.11"
   }
 }
