@@ -25,12 +25,11 @@ export default {
   },
   data(){
     return {
-      list: [...this.value],
       transitionMode: false,
     }
   },
   mounted() {
-    console.log('sortable', 'mounted')
+    console.log('sortable', 'mounted', this.value)
     this.init()
   },
   beforeUpdate(){

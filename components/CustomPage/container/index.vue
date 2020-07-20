@@ -1,11 +1,8 @@
 <template>
   <static v-if="showStatic" />
   <operate :value="value" v-else>
-    <template v-for="item in value" :key="item.type">
-      <Container v-if="item.type === 'container'" :value="item.children"/>
-      <Text v-if="item.type === 'text'"/>
-      <Media v-if="item.type === 'media'"/>
-    </template>
+    <div v-for="item in value.children" :key="item.type" v-is="item.type" :value="item">
+    </div>
   </operate>
 </template>
 

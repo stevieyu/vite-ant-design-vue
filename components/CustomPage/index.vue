@@ -1,13 +1,10 @@
 <template>
   <div class="flex">
     <sortable class="w-48 flex flex-wrap justify-around pt-2" :options="sortableOps" :value="widgets" u="1">
-      <template v-for="item in widgets" :key="item.type">
-        <Container v-if="item.type === 'container'" static/>
-        <Text v-if="item.type === 'text'" static/>
-        <Media v-if="item.type === 'media'" static/>
-      </template>
+      <div v-for="item in widgets" :key="item.type" v-is="item.type" static >
+      </div>
     </sortable>
-    <Container class="list-group nested-sortable flex-auto" :value="list"/>
+    <Container class="list-group nested-sortable flex-auto" :value="data"/>
   </div>
 </template>
 <script>
@@ -46,21 +43,23 @@ export default {
           type: 'media',
         },
       ],
-      list: [
-        {
-          type: 'container',
-          children: [
-            {
-              type: 'text',
-              val: '2xxxx',
-            }
-          ]
-        },
-        {
-          type: 'text',
-          val: 'xxxx',
-        }
-      ]
+      data:{
+        children: [
+          {
+            type: 'container',
+            children: [
+              {
+                type: 'text',
+                val: '2xxxx',
+              }
+            ]
+          },
+          {
+            type: 'text',
+            val: 'xxxx',
+          }
+        ]
+      }
     }
   },
   mounted() {

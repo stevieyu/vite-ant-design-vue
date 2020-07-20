@@ -1,5 +1,5 @@
 <template>
-  <sortable class="p-4 border border-blue-500" :options="sortableOps" :value="value" u="2">
+  <sortable class="p-4 border border-blue-500" :options="sortableOps" :value="value.children" u="2">
     <slot />
   </sortable>
 </template>
