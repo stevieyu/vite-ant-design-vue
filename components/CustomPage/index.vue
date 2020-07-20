@@ -1,0 +1,90 @@
+<template>
+  <div class="flex">
+    <sortable class="w-48 flex flex-wrap justify-around pt-2" :options="sortableOps" :value="widgets" u="1">
+      <template v-for="item in widgets" :key="item.type">
+        <Container v-if="item.type === 'container'" static/>
+        <Text v-if="item.type === 'text'" static/>
+        <Media v-if="item.type === 'media'" static/>
+      </template>
+    </sortable>
+    <Container class="list-group nested-sortable flex-auto" :value="list"/>
+  </div>
+</template>
+<script>
+import Container from './container/index.vue'
+import Text from './text/index.vue'
+import Media from './media/index.vue'
+import sortable from './sortable.vue'
+
+export default {
+  components: {
+    Container,
+    Text,
+    Media,
+    sortable
+  },
+  data() {
+    return {
+      sortableOps: {
+        sort: false,
+        animation: 150,
+        group: {
+          name: 'advanced',
+          pull: 'clone',
+          put: false,
+        },
+      },
+      widgets: [
+        {
+          type: 'container',
+          children: []
+        },
+        {
+          type: 'text',
+        },
+        {
+          type: 'media',
+        },
+      ],
+      list: [
+        {
+          type: 'container',
+          children: [
+            {
+              type: 'text',
+              val: '2xxxx',
+            }
+          ]
+        },
+        {
+          type: 'text',
+          val: 'xxxx',
+        }
+      ]
+    }
+  },
+  mounted() {
+  },
+  methods: {
+  }
+}
+</script>
+<style lang="scss">
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: .75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+}
+.nested-1 {
+  background-color: #e6e6e6;
+}
+.nested-2 {
+  background-color: #cccccc;
+}
+.nested-3 {
+  background-color: #b3b3b3;
+}
+</style>
