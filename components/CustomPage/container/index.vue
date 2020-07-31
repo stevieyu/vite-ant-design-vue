@@ -1,8 +1,7 @@
 <template>
   <static v-if="showStatic" />
   <operate :value="value" v-else>
-    <div v-for="item in value.children" :key="item.type" v-is="item.type" :value="item">
-    </div>
+    <div v-for="item in value.children" :key="item.type" v-is="item.type" :value="item" />
   </operate>
 </template>
 

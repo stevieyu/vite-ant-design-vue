@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import sortable from '../sortable.vue'
+import sortable from '../sortable.js'
 export default {
   props: ['value'],
   components:{
@@ -19,7 +19,7 @@ export default {
         // handle: '.drag-handle',
         group: {
           name: 'advanced',
-          pull: false,
+          pull: true,
           put: true,
         },
       },

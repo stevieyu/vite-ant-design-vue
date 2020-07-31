@@ -11,7 +11,7 @@
 import Container from './container/index.vue'
 import Text from './text/index.vue'
 import Media from './media/index.vue'
-import sortable from './sortable.vue'
+import sortable from './sortable.js'
 
 export default {
   components: {
