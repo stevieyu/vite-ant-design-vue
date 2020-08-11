@@ -1,8 +1,7 @@
 <template>
   <div class="flex">
-    <sortable class="w-48 flex flex-wrap justify-around pt-2" :options="sortableOps" :value="widgets" u="1">
-      <div v-for="item in widgets" :key="item.type" v-is="item.type" static >
-      </div>
+    <sortable class="w-48 flex flex-wrap -m-1" :options="sortableOps" :value="widgets" u="1">
+      <div v-for="item in widgets" :key="item.type" v-is="item.type" static class="m-2"/>
     </sortable>
     <Container class="list-group nested-sortable flex-auto" :value="data"/>
   </div>

@@ -2,7 +2,7 @@
  * source https://github.com/SortableJS/Vue.Draggable/blob/master/src/vuedraggable.js
  */
 import Sortable from 'sortablejs';
-import merge from 'lodash-es/merge'
+import {merge} from 'lodash-es'
 import {toRaw, h} from 'vue'
 
 const defaultOps = {
@@ -49,7 +49,7 @@ export default {
     updateOptions(newOptionValue) {
       for (const property in newOptionValue) {
         const value = camelize(property);
-        if (readonlyProperties.indexOf(value) === -1) {
+        if (!readonlyProperties.includes(value)) {
           this._st.option(value, newOptionValue[property]);
         }
       }

@@ -6,16 +6,18 @@
   },
   "dependencies": {
     "sortablejs": "^1.10.2",
-    "yup": "^0.29.2"
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.0-rc.5",
     "lodash-es": "^4.17.15",
     "sass": "^1.26.10",
-    "tailwindcss": "^1.6.0",
+    "tailwindcss": "^1.6.2",
     "vite": "^1.0.0-rc.4",
     "vue": "^3.0.0-rc.5",
-    "vue-router": "^4.0.0-beta.4",
+    "vue-router": "^4.0.0-beta.6",
     "vuex": "^4.0.0-beta.4"
+  },
+  "optionalDependencies": {
   }
 }
