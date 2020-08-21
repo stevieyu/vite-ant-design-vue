@@ -1,15 +1,8 @@
 <template>
-  <custom-page />
+  <router-view />
 </template>
 
-<script>
-import CustomPage from './components/CustomPage/index.vue'
-
-export default {
-  components:{
-    CustomPage
-  }
-}
+<script setup>
 </script>
 <style lang="scss">
 @tailwind base;
