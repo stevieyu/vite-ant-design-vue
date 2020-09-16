@@ -31,9 +31,8 @@
   </div>
 </template>
 
-<script>
+<script setup="props">
 export default {
-  name: 'HelloWorld',
   props: {
     msg: String
   }

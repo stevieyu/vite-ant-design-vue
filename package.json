@@ -5,17 +5,19 @@
     "build": "vite build"
   },
   "dependencies": {
+    "ant-design-vue": "^2.0.0-beta.9",
     "sortablejs": "^1.10.2",
+    "vue": "^3.0.0-rc.11",
     "yup": "^0.29.3"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0-rc.6",
+    "@vue/compiler-sfc": "^3.0.0-rc.11",
     "lodash-es": "^4.17.15",
     "sass": "^1.26.10",
-    "tailwindcss": "^1.7.3",
+    "tailwindcss": "^1.8.10",
     "vite": "^1.0.0-rc.4",
-    "vue": "^3.0.0-rc.6",
-    "vue-router": "^4.0.0-beta.7",
+    "vite-plugin-voie": "^0.4.0",
+    "vue-router": "^4.0.0-beta.9",
     "vuex": "^4.0.0-beta.4"
   },
   "optionalDependencies": {}

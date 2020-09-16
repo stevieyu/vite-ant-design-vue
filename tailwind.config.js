@@ -1,7 +1,6 @@
 module.exports = {
   purge: [
-    './views/**/*.vue',
-    './components/**/*.vue',
+    './src/**/*.vue',
   ],
   theme: {
     extend: {},
@@ -10,5 +9,6 @@ module.exports = {
   plugins: [],
   future: {
     removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true
   },
 }
