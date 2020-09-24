@@ -5,7 +5,7 @@
       |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view class="px-4"/>
   </ProLayout>
 </template>
 <script>
