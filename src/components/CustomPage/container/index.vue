@@ -6,27 +6,27 @@
 </template>
 
 <script>
-import Operate from './operate.vue'
-import Static from './static.vue'
-import Display from './display.vue'
-import Text from '../text/index.vue'
-import Media from '../media/index.vue'
+import Operate from './operate.vue';
+import Static from './static.vue';
+import Display from './display.vue';
+import Text from '../text/index.vue';
+import Media from '../media/index.vue';
 export default {
   name: 'Container',
-  components:{
+  components: {
     Operate,
     Static,
     Display,
     Text,
-    Media
+    Media,
   },
   props: ['static', 'operate', 'value'],
   computed: {
-    showStatic(){
+    showStatic() {
       return ['', true].includes(this.static);
     },
   },
   mounted() {
   },
-}
+};
 </script>

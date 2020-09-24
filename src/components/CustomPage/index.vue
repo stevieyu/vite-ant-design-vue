@@ -9,17 +9,17 @@
   </div>
 </template>
 <script>
-import Container from './container/index.vue'
-import Text from './text/index.vue'
-import Media from './media/index.vue'
-import sortable from './sortable.js'
+import Container from './container/index.vue';
+import Text from './text/index.vue';
+import Media from './media/index.vue';
+import sortable from './sortable.js';
 
 export default {
   components: {
     Container,
     Text,
     Media,
-    sortable
+    sortable,
   },
   data() {
     return {
@@ -35,7 +35,7 @@ export default {
       widgets: [
         {
           type: 'container',
-          children: []
+          children: [],
         },
         {
           type: 'text',
@@ -44,7 +44,7 @@ export default {
           type: 'media',
         },
       ],
-      data:{
+      data: {
         children: [
           {
             type: 'container',
@@ -52,22 +52,22 @@ export default {
               {
                 type: 'text',
                 val: '2xxxx',
-              }
-            ]
+              },
+            ],
           },
           {
             type: 'text',
             val: 'xxxx',
-          }
-        ]
-      }
-    }
+          },
+        ],
+      },
+    };
   },
   mounted() {
   },
   methods: {
-  }
-}
+  },
+};
 </script>
 <style lang="scss">
 .list-group-item {

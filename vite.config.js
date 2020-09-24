@@ -1,7 +1,9 @@
 // @ts-check
 import voie from 'vite-plugin-voie';
+import eslint from './pkg/vite-eslint';
+
 /**
- * @type { import('vite').SharedConfig }
+ * @type { import('vite').UserConfig }
  */
 module.exports = {
   optimizeDeps: {
@@ -9,18 +11,20 @@ module.exports = {
       'yup/es',
       'lodash-es',
       'moment',
-      'ant-design-vue/es/locale/zh_CN'
-    ]
+      'ant-design-vue/es',
+      'ant-design-vue/es/locale/zh_CN',
+    ],
   },
   plugins: [
+    eslint(),
     voie({
       pagesDir: 'src/views',
-      extensions: ['vue', 'ts', 'tsx','jsx', 'js'],
-      importMode: 'async'
+      extensions: ['vue', 'ts', 'tsx', 'jsx', 'js'],
+      importMode: 'async',
     }),
   ],
   vueCompilerOptions: {
-    isCustomElement: tag => tag.startsWith('ct-')
-  }
-}
+    isCustomElement: (tag) => tag.startsWith('ct-'),
+  },
+};
 

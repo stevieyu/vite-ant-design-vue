@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import sortable from '../sortable.js'
+import sortable from '../sortable.js';
 export default {
   props: ['value'],
-  components:{
-    sortable
+  components: {
+    sortable,
   },
-  data(){
+  data() {
     return {
       sortableOps: {
         sort: true,
@@ -23,7 +23,7 @@ export default {
           put: true,
         },
       },
-    }
-  }
-}
+    };
+  },
+};
 </script>

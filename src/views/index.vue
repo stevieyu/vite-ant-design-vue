@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-export {default as HelloWorld} from '../components/HelloWorld.vue'
+export {default as HelloWorld} from '../components/HelloWorld.vue';
 </script>

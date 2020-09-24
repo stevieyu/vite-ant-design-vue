@@ -1,4 +1,6 @@
+/*eslint-disable*/
 /**
+ *
  * source https://github.com/SortableJS/Vue.Draggable/blob/master/src/vuedraggable.js
  */
 import Sortable from 'sortablejs';

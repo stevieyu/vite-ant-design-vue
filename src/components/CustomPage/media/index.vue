@@ -8,22 +8,22 @@
 </template>
 
 <script>
-import Operate from './operate.vue'
-import Static from './static.vue'
+import Operate from './operate.vue';
+import Static from './static.vue';
 export default {
-  components:{
+  components: {
     Operate,
-    Static
+    Static,
   },
   props: ['static'],
   computed: {
-    showStatic(){
+    showStatic() {
       return this.static !== undefined;
-    }
+    },
   },
   mounted() {
   },
-}
+};
 </script>
 
 <style scoped>

@@ -1,25 +1,29 @@
 <template>
-  <div class="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <a-config-provider :locale="locale">
-    <router-view />
-  </a-config-provider>
+  <ProLayout :menus="menus">
+    <div class="nav">
+      <router-link to="/">Home</router-link>
+      |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+  </ProLayout>
 </template>
-<script setup>
-import momentDefineLocaleZhCn from './utils/momentDefineLocaleZhCn'
-momentDefineLocaleZhCn();
+<script>
+import ProLayout from '/src/components/ProLayout/index.vue';
+import menus from './router/menus';
 
-import zhCN from 'ant-design-vue/es/locale/zh_CN';
-export const locale = zhCN
+export default {
+  components: {
+    ProLayout,
+  },
+  setup() {
+    return {
+      menus,
+    };
+  },
+};
 </script>
 <style lang="scss">
-//@tailwind base;
-@tailwind utilities;
-//@tailwind components;
-
-
 .nav {
   padding: 30px;
   text-align: center;

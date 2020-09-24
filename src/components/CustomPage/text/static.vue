@@ -4,5 +4,5 @@
   </div>
 </template>
 <script setup>
-export const text = '文本'
+export const text = '文本';
 </script>

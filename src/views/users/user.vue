@@ -1,9 +1,10 @@
 <template>
-  <div class="border border-red-500 h-10"></div>
+<div>user</div>
 </template>
 
 <script>
 export default {
+  name: 'user',
 };
 </script>
 
