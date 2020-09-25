@@ -1,0 +1,17 @@
+{
+  "name": "vite-eslint",
+  "version": "1.0.0",
+  "description": "",
+  "module": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stevie",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^7.9.0",
+    "eslint-plugin-vue": "^7.0.0-beta.3",
+    "eslint-formatter-friendly": "^7.0.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}

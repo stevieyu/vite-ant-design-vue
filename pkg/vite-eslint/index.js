@@ -1,7 +1,7 @@
-import * as path from 'path';
-import {ESLint} from 'eslint';
+const path = require('path');
+const ESLint = require('eslint').ESLint;
 
-export default (options = {}) => {
+module.exports = (options = {}) => {
   options = {
     extNames: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
     formatter: 'friendly',

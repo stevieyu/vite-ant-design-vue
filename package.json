@@ -25,9 +25,6 @@
     "vite-plugin-voie": "^0.4.0"
   },
   "optionalDependencies": {
-    "eslint": "^7.9.0",
-    "eslint-plugin-vue": "^7.0.0-beta.3",
-    "eslint-formatter-friendly": "^7.0.0",
-    "eslint-config-google": "^0.14.0"
+    "vite-eslint": "file:pkg/vite-eslint"
   }
 }

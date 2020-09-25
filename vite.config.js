@@ -1,6 +1,6 @@
 // @ts-check
 import voie from 'vite-plugin-voie';
-import eslint from './pkg/vite-eslint';
+import eslint from 'vite-eslint';
 
 /**
  * @type { import('vite').UserConfig }
