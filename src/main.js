@@ -2,14 +2,12 @@ import {createApp} from 'vue';
 import App from '/src/App.vue';
 import router from './router';
 import store from './store';
-
-import antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+import bootstrap from './bootstrap';
 
 import './scss/main.scss';
 
 createApp(App)
     .use(router)
     .use(store)
-    .use(antd)
+    .use(bootstrap)
     .mount('#app');

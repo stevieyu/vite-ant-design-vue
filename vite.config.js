@@ -8,6 +8,7 @@ import eslint from './pkg/vite-eslint';
 module.exports = {
   optimizeDeps: {
     include: [
+      'ky',
       'yup/es',
       'lodash-es',
       'moment',
