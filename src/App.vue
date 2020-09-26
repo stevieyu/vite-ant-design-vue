@@ -1,40 +1,21 @@
 <template>
-  <ProLayout :menus="menus">
-    <div class="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view class="px-4"/>
+  <router-view v-if="isAuth"/>
+  <ProLayout :menus="menus" v-else>
+    <router-view class="p-4"/>
   </ProLayout>
 </template>
-<script>
-import ProLayout from '/src/components/ProLayout/index.vue';
-import menus from './router/menus';
+<script setup>
+export {default as ProLayout} from '/src/components/ProLayout/index.vue';
+export {default as menus} from './router/menus';
 
-export default {
-  components: {
-    ProLayout,
-  },
-  setup() {
-    return {
-      menus,
-    };
-  },
+import {useRoute} from 'vue-router';
+import {computed} from 'vue';
+
+const route = useRoute();
+
+const isAuth = computed(() => route.fullPath.includes('/login'));
+
+export {
+  isAuth,
 };
 </script>
-<style lang="scss">
-.nav {
-  padding: 30px;
-  text-align: center;
-}
-
-.nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-.nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
