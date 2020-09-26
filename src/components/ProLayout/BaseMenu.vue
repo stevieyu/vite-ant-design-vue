@@ -124,8 +124,11 @@ export default {
       const fn = (arr) => {
         const item = arr.find((i) => {
           if (i.children?.length) {
-            return fn(i.children);
+            const children = cloneDeep(fn(i.children))
+            delete i.children;
+            return children;
           }
+          delete i.children;
           return pathname === i.fullPath
         })
         items.push(item)
@@ -134,7 +137,7 @@ export default {
       }
       fn(cloneDeep(this.menuItems))
 
-      this.matchedMenuItems = items.reverse();
+      this.matchedMenuItems = items.reverse().filter(Boolean);
     },
   },
 };
