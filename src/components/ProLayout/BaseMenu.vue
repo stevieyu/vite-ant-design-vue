@@ -95,17 +95,18 @@ export default {
         this.handleMatchedMenuItems();
         this.updateMenu();
       })
+      /* eslint-enable */
     }, 1),
     updateMenu() {
-      const currentRoute = this.$route
-        const { hidden } = currentRoute.meta
+      const currentRoute = this.$route;
+      const {hidden} = currentRoute.meta;
       const routes = this.matchedMenuItems;
 
       if (routes.length >= 3 && hidden) {
-        routes.pop()
-        this.selectedKeys = [routes[routes.length - 1].path]
-      } else {
-        this.selectedKeys = [routes.pop().fullPath]
+        routes.pop();
+        this.selectedKeys = [routes[routes.length - 1].fullPath];
+      } else if (routes.length) {
+        this.selectedKeys = [routes.pop().fullPath];
       }
 
       const openKeys = [];
@@ -115,27 +116,29 @@ export default {
         });
       }
 
-      this.collapsed ? (this.cachedOpenKeys = openKeys) : (this.openKeys = openKeys);
+      if (openKeys.length) {
+        this.collapsed ? (this.cachedOpenKeys = openKeys) : (this.openKeys = openKeys);
+      }
     },
     handleMatchedMenuItems() {
-      const pathname = location.pathname
+      const pathname = location.pathname;
 
       const items = [];
       const fn = (arr) => {
         const item = arr.find((i) => {
           if (i.children?.length) {
-            const children = cloneDeep(fn(i.children))
+            const children = cloneDeep(fn(i.children));
             delete i.children;
             return children;
           }
           delete i.children;
-          return pathname === i.fullPath
-        })
-        items.push(item)
+          return pathname === i.fullPath;
+        });
+        items.push(item);
 
         return item;
-      }
-      fn(cloneDeep(this.menuItems))
+      };
+      fn(cloneDeep(this.menuItems));
 
       this.matchedMenuItems = items.reverse().filter(Boolean);
     },

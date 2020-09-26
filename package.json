@@ -11,7 +11,7 @@
     "ky": "^0.23.0",
     "sortablejs": "^1.12.0",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-beta.11",
+    "vue-router": "^4.0.0-beta.12",
     "vue-types": "^3.0.0",
     "vuex": "^4.0.0-beta.4",
     "yup": "^0.29.3"

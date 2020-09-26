@@ -3,13 +3,8 @@ import routes from 'voie-pages';
 
 const routerHistory = createWebHistory();
 
-const router = createRouter({
+export default createRouter({
   history: routerHistory,
   routes,
 });
 
-export {
-  routes,
-};
-
-export default router;
