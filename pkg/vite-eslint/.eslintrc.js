@@ -1,11 +1,17 @@
 
 module.exports = {
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+  },
   parser: 'vue-eslint-parser',
   parserOptions: {
     sourceType: 'module',
   },
   extends: [
     'plugin:vue/vue3-essential',
+    'eslint:recommended',
     'google',
   ],
   rules: {

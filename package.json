@@ -7,21 +7,21 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^5.1.5",
-    "ant-design-vue": "^2.0.0-beta.9",
-    "ky": "^0.23.0",
+    "ant-design-vue": "2.0.0-beta.10",
+    "ky": "^0.24.0",
     "sortablejs": "^1.12.0",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-beta.12",
-    "vue-types": "^3.0.0",
+    "vue": "^3.0.2",
+    "vue-router": "^4.0.0-rc.1",
+    "vue-types": "^3.0.1",
     "vuex": "^4.0.0-beta.4",
     "yup": "^0.29.3"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/compiler-sfc": "^3.0.2",
     "lodash-es": "^4.17.15",
-    "sass": "^1.26.11",
-    "tailwindcss": "^1.8.10",
-    "vite": "^1.0.0-rc.4",
+    "sass": "^1.28.0",
+    "tailwindcss": "^2.0.0-alpha.4",
+    "vite": "^1.0.0-rc.8",
     "vite-plugin-voie": "^0.4.0"
   },
   "optionalDependencies": {

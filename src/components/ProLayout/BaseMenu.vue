@@ -61,7 +61,7 @@ export default {
             i.fullPath = [];
             if (parent) i.fullPath.push(parent.fullPath);
             i.fullPath.push(i.path);
-            i.fullPath = i.fullPath.filter(Boolean).join('/').replace(`\/\/`, '');
+            i.fullPath = i.fullPath.filter(Boolean).join('/').replace(`//`, '');
 
             if (i.children?.length) {
               i.children = fn(i.children, i);
