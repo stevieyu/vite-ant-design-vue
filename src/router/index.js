@@ -3,8 +3,16 @@ import routes from 'voie-pages';
 
 const routerHistory = createWebHistory();
 
-export default createRouter({
+const router = createRouter({
   history: routerHistory,
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    return {top: 0};
+  },
 });
 
+router.beforeEach((to, from, next) => {
+  next();
+});
+
+export default router;

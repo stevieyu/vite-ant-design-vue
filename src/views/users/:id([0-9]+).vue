@@ -5,6 +5,9 @@
 <script>
 export default {
   name: 'user',
+  props: ['id'],
+  mounted() {
+  },
 };
 </script>
 
