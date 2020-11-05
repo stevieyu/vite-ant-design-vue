@@ -19,12 +19,24 @@
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.2",
     "lodash-es": "^4.17.15",
-    "sass": "^1.28.0",
+    "sass": "^1.29.0",
     "tailwindcss": "2.0.0-alpha.4",
     "vite": "^1.0.0-rc.9",
     "vite-plugin-voie": "^0.4.0"
   },
   "optionalDependencies": {
-    "vite-eslint": "file:pkg/vite-eslint"
+    "vite-eslint": "file:pkg/vite-eslint",
+    "githook": "file:pkg/githook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "eslint --fix"
+    ]
   }
 }
