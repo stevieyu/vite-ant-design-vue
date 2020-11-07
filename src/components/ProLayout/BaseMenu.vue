@@ -24,6 +24,10 @@
 import {MenuOutlined} from '@ant-design/icons-vue';
 import Types from 'vue-types';
 import {debounce, cloneDeep} from 'lodash-es';
+import stringSimilarity from 'string-similarity';
+
+const {compareTwoStrings} = stringSimilarity;
+
 export const BaseMenuProps = {
   menus: Types.array,
   theme: Types.string.def('dark'),
@@ -49,6 +53,7 @@ export default {
   computed: {
     menuItems() {
       const fn = (arr, parent = null) => arr
+          .filter((i) => i.title && !i.hidden)
           .map((i) => ({
             path: i.path,
             meta: {
@@ -56,7 +61,6 @@ export default {
             },
             children: i.children,
           }))
-          .filter((i) => i.meta && !i.hidden)
           .map((i) => {
             i.fullPath = [];
             if (parent) i.fullPath.push(parent.fullPath);
@@ -124,23 +128,31 @@ export default {
       const pathname = location.pathname;
 
       const items = [];
-      const fn = (arr) => {
+      const fn = (arr, pPaths = []) => {
         const item = arr.find((i) => {
+          const fullPath = [...pPaths, i.path].filter((i) => Boolean(i) && i !== '/');
+          i.fullPath = fullPath.join('/') || '/';
+          i.match = compareTwoStrings(pathname, i.fullPath+'/');
           if (i.children?.length) {
-            const children = cloneDeep(fn(i.children));
+            const children = cloneDeep(fn(i.children, fullPath));
             delete i.children;
+            if (!children && pathname.includes(i.fullPath)) {
+              items.push(i);
+            }
             return children;
+          } else if (pathname.includes(i.fullPath) && i.match > 0.7) {
+            items.push(i);
           }
           delete i.children;
+
           return pathname === i.fullPath;
         });
-        items.push(item);
+        if (item) items.push(item);
 
         return item;
       };
-      fn(cloneDeep(this.menuItems));
-
-      this.matchedMenuItems = items.reverse().filter(Boolean);
+      fn(cloneDeep(this.menus));
+      this.matchedMenuItems = items.reverse().sort((a, b) => a.match - b.match);
     },
   },
 };

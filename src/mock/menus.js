@@ -13,8 +13,8 @@ export default [
         path: '/',
         title: '列表',
       }, {
-        path: 'user',
-        title: '详情',
+        path: 'add',
+        title: '添加',
       },
     ],
   },

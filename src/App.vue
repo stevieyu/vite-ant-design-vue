@@ -6,7 +6,7 @@
 </template>
 <script setup>
 export {default as ProLayout} from '/src/components/ProLayout/index.vue';
-export {default as menus} from './router/menus';
+export {default as menus} from './mock/menus';
 
 import {useRoute} from 'vue-router';
 import {computed} from 'vue';

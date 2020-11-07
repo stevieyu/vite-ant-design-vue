@@ -1,13 +1,7 @@
 <template>
-<div>list</div>
+<div>
+  list
+  <router-link to="$_append('/')" append><a-button>编辑</a-button></router-link>
+</div>
 </template>
 
-<script>
-export default {
-  name: 'index',
-};
-</script>
-
-<style scoped>
-
-</style>
