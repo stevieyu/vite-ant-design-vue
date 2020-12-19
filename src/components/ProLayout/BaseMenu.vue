@@ -24,9 +24,7 @@
 import {MenuOutlined} from '@ant-design/icons-vue';
 import Types from 'vue-types';
 import {debounce, cloneDeep} from 'lodash-es';
-import stringSimilarity from 'string-similarity';
-
-const {compareTwoStrings} = stringSimilarity;
+import {compareTwoStrings} from 'string-similarity';
 
 export const BaseMenuProps = {
   menus: Types.array,
@@ -78,7 +76,7 @@ export default {
     },
   },
   watch: {
-    '$route'(val) {
+    '$route'() {
       this.debounceUpdateMenu();
     },
     collapsed(val) {
@@ -91,6 +89,7 @@ export default {
     },
   },
   mounted() {
+    this.debounceUpdateMenu();
   },
   methods: {
     debounceUpdateMenu: debounce(function() {
@@ -100,7 +99,7 @@ export default {
         this.updateMenu();
       })
       /* eslint-enable */
-    }, 1),
+    }, 10),
     updateMenu() {
       const currentRoute = this.$route;
       const {hidden} = currentRoute.meta;

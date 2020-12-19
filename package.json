@@ -6,24 +6,24 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue --format friendly --fix src/"
   },
   "dependencies": {
-    "@ant-design/icons-vue": "^5.1.6",
-    "ant-design-vue": "^2.0.0-rc.1",
-    "ky": "^0.25.0",
-    "sortablejs": "^1.12.0",
+    "@ant-design/icons-vue": "^5.1.8",
+    "ant-design-vue": "^2.0.0-rc.5",
+    "ky": "^0.25.1",
     "string-similarity": "^4.0.3",
-    "vue": "^3.0.2",
-    "vue-router": "^4.0.0-rc.5",
+    "vue": "^3.0.4",
+    "vue-router": "^4.0.1",
     "vue-types": "^3.0.1",
-    "vuex": "^4.0.0-rc.1",
-    "yup": "^0.29.3"
+    "vuedraggable": "^4.0.1",
+    "vuex": "^4.0.0-rc.2",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.2",
+    "@vue/compiler-sfc": "^3.0.4",
     "lodash-es": "^4.17.15",
-    "sass": "^1.29.0",
+    "sass": "^1.30.0",
     "tailwindcss": "compat",
-    "vite": "^1.0.0-rc.9",
-    "vite-plugin-voie": "^0.4.0"
+    "vite": "^1.0.0-rc.13",
+    "vite-plugin-voie": "^0.4.1"
   },
   "optionalDependencies": {
     "vite-eslint": "file:pkg/vite-eslint",

@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script setup="props">
+<script>
 export default {
   props: {
     msg: String,

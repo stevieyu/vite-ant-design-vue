@@ -4,18 +4,29 @@
     <router-view class="p-4"/>
   </ProLayout>
 </template>
-<script setup>
-export {default as ProLayout} from '/src/components/ProLayout/index.vue';
-export {default as menus} from './mock/menus';
+<script>
+import ProLayout from '/src/components/ProLayout/index.vue';
+import menus from './mock/menus';
 
 import {useRoute} from 'vue-router';
-import {computed} from 'vue';
+import {watch, ref} from 'vue';
 
-const route = useRoute();
+export default {
+  components: {
+    ProLayout,
+  },
+  setup() {
+    const route = useRoute();
 
-const isAuth = computed(() => route.fullPath.includes('/login'));
+    const isAuth = ref(true);
+    watch(route, () => {
+      isAuth.value = route.fullPath.includes('/login');
+    });
 
-export {
-  isAuth,
+    return {
+      menus,
+      isAuth,
+    };
+  },
 };
 </script>

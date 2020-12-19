@@ -1,6 +1,6 @@
 <template>
-  <a-config-provider :locale="locale" class="pro-layout">
-    <a-layout>
+  <a-config-provider :locale="locale">
+    <a-layout class="pro-layout">
       <SiderMenuWrapper :menus="menus" :collapsed="collapsed" class="shadow"/>
       <a-layout class="max-h-screen">
         <Header v-model:collapsed="collapsed" />
@@ -11,12 +11,13 @@
           ©2020 Created by XXX
         </a-layout-footer>
       </a-layout>
-      </a-layout>
+    </a-layout>
   </a-config-provider>
 </template>
 <script>
 import SiderMenuWrapper from './SiderMenuWrapper.vue';
 import Header from './Header.vue';
+
 import locale from 'ant-design-vue/es/locale/zh_CN';
 
 import momentDefineLocaleZhCn from '/src/utils/momentDefineLocaleZhCn';

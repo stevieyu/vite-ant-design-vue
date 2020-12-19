@@ -5,6 +5,11 @@
   </div>
 </template>
 
-<script setup>
-export {default as HelloWorld} from '../components/HelloWorld.vue';
+<script>
+import HelloWorld from '/src/components/HelloWorld.vue';
+export default {
+  components: {
+    HelloWorld,
+  },
+};
 </script>
