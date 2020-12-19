@@ -1,11 +1,8 @@
-// @ts-check
+import { UserConfig } from 'vite'
 import voie from 'vite-plugin-voie';
 import eslint from 'vite-eslint';
 
-/**
- * @type { import('vite').UserConfig }
- */
-module.exports = {
+const config:UserConfig = {
   optimizeDeps: {
     include: [
       'yup/es',
@@ -19,7 +16,6 @@ module.exports = {
     eslint(),
     voie({
       pagesDir: 'src/views',
-      extensions: ['vue', 'ts', 'tsx', 'jsx', 'js'],
       importMode: 'async',
     }),
   ],
@@ -28,3 +24,4 @@ module.exports = {
   },
 };
 
+export default config
