@@ -1,8 +1,8 @@
 <template>
-  <router-view v-if="isAuth"/>
-  <ProLayout :menus="menus" v-else>
-    <router-view class="p-4"/>
-  </ProLayout>
+  <router-view v-if="isAuthPage"/>
+    <pro-layout v-else :menus="menus">
+      <router-view />
+    </pro-layout>
 </template>
 <script>
 import ProLayout from '/src/components/ProLayout/index.vue';
@@ -18,14 +18,14 @@ export default {
   setup() {
     const route = useRoute();
 
-    const isAuth = ref(true);
+    const isAuthPage = ref(true);
     watch(route, () => {
-      isAuth.value = route.fullPath.includes('/login');
+      isAuthPage.value = route.fullPath.includes('/login');
     });
 
     return {
       menus,
-      isAuth,
+      isAuthPage,
     };
   },
 };
