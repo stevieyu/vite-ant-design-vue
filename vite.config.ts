@@ -10,7 +10,9 @@ const alias = {
 }
 
 const config:UserConfig = {
-  alias,
+  resolve: {
+    alias
+  },
   optimizeDeps: {
     include: [
         'moment',

@@ -7,24 +7,24 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^5.1.9",
-    "ant-design-vue": "^2.0.0-rc.9",
+    "ant-design-vue": "^2.0.0",
     "ky": "^0.26.0",
-    "lodash-es": "^4.17.20",
-    "string-similarity": "^4.0.3",
+    "lodash-es": "^4.17.21",
+    "string-similarity": "^4.0.4",
     "vue": "^3.0.5",
-    "vue-router": "^4.0.3",
-    "vue-types": "^3.0.1",
+    "vue-router": "^4.0.4",
+    "vue-types": "^3.0.2",
     "vuedraggable": "^4.0.1",
-    "vuex": "^4.0.0-rc.2",
-    "yup": "^0.32.8"
+    "vuex": "^4.0.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.1.2",
-    "@vitejs/plugin-vue-jsx": "^1.0.2",
+    "@vitejs/plugin-vue": "^1.1.4",
+    "@vitejs/plugin-vue-jsx": "^1.1.0",
     "@vue/compiler-sfc": "^3.0.5",
-    "sass": "^1.32.5",
+    "sass": "^1.32.8",
     "tailwindcss": "compat",
-    "vite": "^2.0.0-beta.50",
+    "vite": "^2.0.2",
     "vite-plugin-voie": "^0.7.3"
   },
   "optionalDependencies": {
