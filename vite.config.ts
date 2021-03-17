@@ -1,5 +1,5 @@
 import path from 'path'
-import { UserConfig } from 'vite'
+import { defineConfig } from 'vite'
 import voie from 'vite-plugin-voie';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -9,7 +9,7 @@ const alias = {
   '/~/': path.resolve(__dirname, 'src'),
 }
 
-const config:UserConfig = {
+export default defineConfig({
   resolve: {
     alias
   },
@@ -29,6 +29,4 @@ const config:UserConfig = {
       importMode: 'async',
     }),
   ],
-};
-
-export default config
+});
