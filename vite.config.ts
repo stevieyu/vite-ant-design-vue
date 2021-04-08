@@ -5,17 +5,15 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import eslint from 'vite-eslint';
 
-const alias = {
-  '/~/': path.resolve(__dirname, 'src'),
-}
-
 export default defineConfig({
   resolve: {
-    alias
+    alias: {
+      '/~/': path.resolve(__dirname, 'src'),
+      'moment': 'dayjs'
+    }
   },
   optimizeDeps: {
     include: [
-        'moment',
         'lodash-es',
         'ant-design-vue/es/locale/zh_CN'
     ]
@@ -26,7 +24,7 @@ export default defineConfig({
     eslint(),
     voie({
       pagesDir: 'src/views',
-      importMode: 'async',
+      // importMode: 'sync',
     }),
   ],
 });

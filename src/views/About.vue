@@ -7,4 +7,15 @@
     <h1>This is an about page</h1>
   </div>
 </template>
+<script lang="ts">
+import {defineComponent} from 'vue'
+import {Calendar} from 'ant-design-vue';
+
+
+export default defineComponent({
+  components: {
+    [Calendar.name]: Calendar
+  }
+})
+</script>
 

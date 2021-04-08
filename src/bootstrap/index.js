@@ -4,8 +4,7 @@ ky.get('https://httpbin.org/anything/sdadas');
 
 import './offlineNotice';
 
-import antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+import antd from './antd'
 
 import router from './router';
 import {useRoute} from 'vue-router';

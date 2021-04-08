@@ -6,24 +6,26 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue --format friendly --fix src/"
   },
   "dependencies": {
+    "@ant-design-vue/pro-layout": "^3.0.0-beta.5",
     "@ant-design/icons-vue": "^5.1.9",
-    "ant-design-vue": "^2.0.1",
+    "ant-design-vue": "^2.1.2",
+    "dayjs": "^1.10.4",
     "ky": "^0.26.0",
     "lodash-es": "^4.17.21",
     "string-similarity": "^4.0.4",
-    "vue": "^3.0.5",
-    "vue-router": "^4.0.5",
+    "vue": "^3.0.11",
+    "vue-router": "^4.0.6",
     "vue-types": "^3.0.2",
     "vuedraggable": "^4.0.1",
     "vuex": "^4.0.0",
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.1.5",
-    "@vitejs/plugin-vue-jsx": "^1.1.2",
-    "@vue/compiler-sfc": "^3.0.7",
+    "@vitejs/plugin-vue": "^1.2.1",
+    "@vitejs/plugin-vue-jsx": "^1.1.3",
+    "@vue/compiler-sfc": "^3.0.11",
     "sass": "^1.32.8",
-    "tailwindcss": "^2.0.3",
+    "tailwindcss": "^2.1.1",
     "vite": "2.1.1",
     "vite-plugin-voie": "^0.7.3"
   },
