@@ -14,8 +14,9 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: [
-        'lodash-es',
-        'ant-design-vue/es/locale/zh_CN'
+        // 'moment',
+        // 'lodash-es',
+        // 'ant-design-vue/es/locale/zh_CN'
     ]
   },
   plugins: [

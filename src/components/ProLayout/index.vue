@@ -20,9 +20,7 @@ import Header from './Header.vue';
 
 import locale from 'ant-design-vue/es/locale/zh_CN';
 
-// import momentDefineLocaleZhCn from '/src/utils/momentDefineLocaleZhCn';
-// momentDefineLocaleZhCn();
-
+// import 'moment/dist/locale/zh-cn'
 import '/src/utils/dayjsInit'
 
 export default {
