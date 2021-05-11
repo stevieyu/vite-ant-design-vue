@@ -5,6 +5,7 @@ import {
     Menu,
     ConfigProvider,
     Dropdown,
+    message,
     Button
 } from 'ant-design-vue';
 
@@ -19,6 +20,7 @@ const components = [
 
 export default {
     install(app){
+        app.config.globalProperties.$message = message;
         components.forEach((component) => {
             app.use(component);
         });
