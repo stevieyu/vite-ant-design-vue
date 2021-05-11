@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import PageBuilder from '/src/components/PageBuilder/index.vue';
+import PageBuilder from '~/components/PageBuilder/index.vue';
 export default {
   components: {
     PageBuilder,
