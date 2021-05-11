@@ -5,7 +5,7 @@
     </pro-layout>
 </template>
 <script>
-import ProLayout from '/src/components/ProLayout/index.vue';
+import ProLayout from './components/ProLayout/index.vue';
 import menus from './mock/menus';
 
 import {useRoute} from 'vue-router';
