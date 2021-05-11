@@ -92,12 +92,11 @@ export default {
     this.debounceUpdateMenu();
   },
   methods: {
-    debounceUpdateMenu: debounce(function() {
+    debounceUpdateMenu: debounce(async function() {
       /* eslint-disable */
-      this.$nextTick(() => {
-        this.handleMatchedMenuItems();
-        this.updateMenu();
-      })
+      await this.$nextTick()
+      this.handleMatchedMenuItems();
+      this.updateMenu();
       /* eslint-enable */
     }, 10),
     updateMenu() {
