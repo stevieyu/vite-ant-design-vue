@@ -1,11 +1,15 @@
 <template>
-<div>single user</div>
+<div>single user {{ fId }}</div>
 </template>
 
 <script>
 export default {
-  name: 'user',
   props: ['id'],
+  computed:{
+    fId(){
+      return ~~this.id;
+    }
+  },
   mounted() {
   },
 };
