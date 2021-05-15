@@ -6,7 +6,8 @@ import {
     ConfigProvider,
     Dropdown,
     message,
-    Button
+    Button,
+    Card
 } from 'ant-design-vue';
 
 const components = [
@@ -15,7 +16,8 @@ const components = [
     Menu,
     ConfigProvider,
     Dropdown,
-    Button
+    Button,
+    Card
 ]
 
 export default {

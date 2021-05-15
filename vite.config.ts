@@ -8,7 +8,8 @@ import eslint from 'vite-eslint';
 export default defineConfig({
   resolve: {
     alias: {
-      '/~/': path.resolve(__dirname, 'src'),
+      '~': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src'),
       'moment': 'dayjs'
     }
   },

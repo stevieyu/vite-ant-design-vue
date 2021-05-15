@@ -6,6 +6,9 @@ export default [
     path: '/about',
     title: 'About',
   }, {
+    path: '/editor',
+    title: '编辑器',
+  }, {
     path: '/users',
     title: '用户管理',
     children: [
