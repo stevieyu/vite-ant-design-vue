@@ -9,6 +9,9 @@ export default [
     path: '/editor',
     title: '编辑器',
   }, {
+    path: '/table',
+    title: '表格',
+  }, {
     path: '/users',
     title: '用户管理',
     children: [
