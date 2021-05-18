@@ -7,9 +7,7 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v1
       - name: use node
@@ -19,7 +17,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run generate
+          npm run build
       - name: surge deploy
         uses: dswistowski/surge-sh-action@v1
         with:
