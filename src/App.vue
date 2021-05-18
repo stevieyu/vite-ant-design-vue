@@ -20,7 +20,14 @@ export default {
 
     const isAuthPage = ref(true);
     watch(route, () => {
-      isAuthPage.value = route.fullPath.includes('/login');
+      const paths = [
+        '/login',
+        '/amis'
+      ]
+      for(const path of paths){
+        isAuthPage.value = route.fullPath.includes(path);
+        if(isAuthPage.value)break;
+      }
     });
 
     return {

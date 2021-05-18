@@ -4,7 +4,7 @@
 // https://froala.com/wysiwyg-editor/
 // https://froala.com/wysiwyg-editor/docs/
 import {h} from 'vue';
-import load from '../../utils/load';
+import load from '@/utils/load';
 
 export default {
     props: ['tag', 'modelValue', 'config', 'onManualControllerReady'],
