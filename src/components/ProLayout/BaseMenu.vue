@@ -123,7 +123,7 @@ export default {
       }
     },
     handleMatchedMenuItems() {
-      const pathname = location.pathname;
+      const pathname = this.$route.fullPath;
 
       const items = [];
       const fn = (arr, pPaths = []) => {
