@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import Froala from '@/components/libraries/Froala'
+import Froala from '@/components/libraries/Froala';
 export default {
-  components:{
-    Froala
+  components: {
+    Froala,
   },
-  data(){
+  data() {
     return {
-      content: ''
-    }
-  }
-}
+      content: '',
+    };
+  },
+};
 </script>

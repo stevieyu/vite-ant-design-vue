@@ -9,20 +9,20 @@
   </div>
 </template>
 <script lang="ts">
-import {defineComponent} from 'vue'
+import {defineComponent} from 'vue';
 import {Calendar, DatePicker} from 'ant-design-vue';
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
 export default defineComponent({
   components: {
     [Calendar.name]: Calendar,
-    [DatePicker.name]: DatePicker
+    [DatePicker.name]: DatePicker,
   },
-  data(){
+  data() {
     return {
-      date: dayjs('2020-01-12')
-    }
-  }
-})
+      date: dayjs('2020-01-12'),
+    };
+  },
+});
 </script>
 

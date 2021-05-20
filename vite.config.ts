@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import voie from 'vite-plugin-voie';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import eslint from 'vite-eslint';
+import eslint from '@rollup/plugin-eslint';
 
 export default defineConfig({
   resolve: {
@@ -21,12 +21,16 @@ export default defineConfig({
     ]
   },
   plugins: [
-    vue(),
-    vueJsx(),
-    eslint(),
+    eslint({
+      fix: true,
+      formatter: 'friendly',
+      include: '**/*.+(vue|js|jsx|ts|tsx)',
+    }),
     voie({
       pagesDir: 'src/views',
       // importMode: 'sync',
     }),
+    vue(),
+    vueJsx(),
   ],
 });

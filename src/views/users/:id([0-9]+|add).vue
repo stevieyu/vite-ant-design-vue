@@ -5,10 +5,10 @@
 <script>
 export default {
   props: ['id'],
-  computed:{
-    fId(){
+  computed: {
+    fId() {
       return ~~this.id;
-    }
+    },
   },
   mounted() {
   },

@@ -22,11 +22,11 @@ export default {
     watch(route, () => {
       const paths = [
         '/login',
-        '/amis'
-      ]
-      for(const path of paths){
+        '/amis',
+      ];
+      for (const path of paths) {
         isAuthPage.value = route.fullPath.includes(path);
-        if(isAuthPage.value)break;
+        if (isAuthPage.value) break;
       }
     });
 

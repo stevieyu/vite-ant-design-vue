@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory, createWebHashHistory} from 'vue-router';
 import routes from 'voie-pages';
 
-const history = 0 ? createWebHistory() : createWebHashHistory();
+const history = import.meta.env.VITE_ROUTER_HASH !== 'true' ? createWebHistory() : createWebHashHistory();
 
 const router = createRouter({
   history,
