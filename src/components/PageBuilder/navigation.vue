@@ -45,12 +45,10 @@ export default {
   },
   methods: {
     onDragEnter(info) {
-      console.log(info);
       // expandedKeys 需要受控时设置
       // this.expandedKeys = info.expandedKeys
     },
     onDrop(info) {
-      console.log(info);
       const dropKey = info.node.eventKey;
       const dragKey = info.dragNode.eventKey;
       const dropPos = info.node.pos.split('-');

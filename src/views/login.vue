@@ -22,10 +22,10 @@ export default {
     const onSubmit = () => {
       formRef.value.validate()
           .then((res) => {
-            console.log(res);
+             console.log(res);
           })
           .catch((err)=>{
-            console.error(err);
+            // console.error(err);
           });
     };
 
