@@ -4,12 +4,12 @@
 </template>
 
 <script>
-import amis from '../components/libraries/amis'
+import amis from '../components/libraries/amis';
 export default {
-  components:{
-    amis
+  components: {
+    amis,
   },
-  data(){
+  data() {
     return {
       json: {
         type: 'page',
@@ -22,31 +22,31 @@ export default {
             {
               label: 'Name',
               type: 'text',
-              name: 'name'
+              name: 'name',
             },
             {
               label: 'Email',
               type: 'email',
-              name: 'email'
-            }
-          ]
-        }
-      }
-    }
-  },
-  computed:{
-    aJson:{
-      get(){
-        return JSON.stringify(this.json)
+              name: 'email',
+            },
+          ],
+        },
       },
-      set(val){
-        try{
-          this.json = JSON.parse(val)
-        }catch (e){
+    };
+  },
+  computed: {
+    aJson: {
+      get() {
+        return JSON.stringify(this.json);
+      },
+      set(val) {
+        try {
+          this.json = JSON.parse(val);
+        } catch (e) {
           //
         }
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 </script>

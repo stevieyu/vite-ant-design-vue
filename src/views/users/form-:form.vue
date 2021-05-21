@@ -6,10 +6,10 @@
 export default {
   props: {
     form: {
-      type: String
-    }
-  }
-}
+      type: String,
+    },
+  },
+};
 </script>
 
 <style scoped>

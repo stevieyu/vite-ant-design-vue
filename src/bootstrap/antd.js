@@ -8,6 +8,8 @@ import {
   message,
   Button,
   Card,
+  Form,
+  Input,
 } from 'ant-design-vue';
 
 const components = [
@@ -18,6 +20,8 @@ const components = [
   Dropdown,
   Button,
   Card,
+  Form,
+  Input,
 ];
 
 export default {
