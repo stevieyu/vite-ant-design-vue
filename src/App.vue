@@ -1,8 +1,8 @@
 <template>
   <router-view v-if="isAuthPage"/>
-    <pro-layout v-else :menus="menus">
-      <router-view />
-    </pro-layout>
+  <pro-layout v-else :menus="menus">
+    <router-view />
+  </pro-layout>
 </template>
 <script>
 import ProLayout from './components/ProLayout/index.vue';

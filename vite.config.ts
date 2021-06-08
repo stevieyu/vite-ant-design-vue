@@ -30,7 +30,13 @@ export default defineConfig({
       pagesDir: 'src/views',
       // importMode: 'sync',
     }),
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: tag => !!['wc-', 'ce-'].filter(i => tag.startsWith(i)).length
+        }
+      }
+    }),
     vueJsx(),
   ],
 });
