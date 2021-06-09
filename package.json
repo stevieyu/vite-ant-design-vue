@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
-    "ant-design-vue": "^2.1.6",
+    "ant-design-vue": "^2.2.0-0",
     "dayjs": "^1.10.5",
     "ky": "^0.28.5",
     "loadjs": "^4.2.0",
@@ -28,7 +28,7 @@
     "@vue/compiler-sfc": "^3.1.1",
     "sass": "^1.34.1",
     "tailwindcss": "^2.2.0-canary.13",
-    "vite": "^2.3.6",
+    "vite": "^2.3.7",
     "vite-plugin-voie": "^0.7.3"
   },
   "optionalDependencies": {

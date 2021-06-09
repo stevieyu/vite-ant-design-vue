@@ -1,6 +1,4 @@
 
-
-// https://github.com/tinymce/tinymce
 // https://froala.com/wysiwyg-editor/
 // https://froala.com/wysiwyg-editor/docs/
 import {h} from 'vue';
@@ -208,6 +206,12 @@ export default {
 
     initListeners() {
       this.registerEvent('initialized', () => {
+        const {0: $wp} = this._editor.$wp;
+        if ($wp) {
+          $wp.querySelector('div:first-child').remove();
+          $wp.querySelector('.fr-placeholder').style['margin-top'] = 0;
+        }
+
         if (this._editor.events) {
           // bind contentChange and keyup event to froalaModel
           this._editor.events.on('contentChanged', () => {
