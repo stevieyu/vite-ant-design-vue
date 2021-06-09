@@ -46,8 +46,9 @@ export default {
   methods: {
     async load() {
       await load([
-        'https://cdn.jsdelivr.net/npm/amis@1.1.7-beta.5/sdk/sdk.min.js',
-        'https://cdn.jsdelivr.net/npm/amis@1.1.7-beta.5/sdk/sdk.min.css',
+        'https://cdn.jsdelivr.net/npm/amis@1/sdk/sdk.min.js',
+        'https://cdn.jsdelivr.net/npm/amis@1/sdk/sdk.min.css',
+        'https://cdn.jsdelivr.net/npm/amis@1/sdk/antd.min.css',
       ], 'amis');
 
       const {amisRequire} = window;
@@ -55,7 +56,7 @@ export default {
       this._amis = amisRequire('amis/embed', {
       }, {
       }, {
-        // theme: 'antd'
+        theme: 'antd',
       });
     },
     init() {
