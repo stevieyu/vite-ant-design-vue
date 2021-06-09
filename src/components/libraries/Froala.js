@@ -101,6 +101,20 @@ export default {
       });
 
       this.editorInitialized = true;
+
+      this.removeLicense();
+    },
+    removeLicense() {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .fr-wrapper div:first-child{
+          display:none;
+        }
+        .fr-wrapper .fr-placeholder{
+          margin-top: 0 !important;
+        }
+      `;
+      this.$el.parentElement.appendChild(style);
     },
     setContent(firstTime) {
       if (!this.editorInitialized && !firstTime) return;
@@ -203,15 +217,8 @@ export default {
       this.oldModel = modelContent;
       this.$emit('update:modelValue', modelContent);
     },
-
     initListeners() {
       this.registerEvent('initialized', () => {
-        const {0: $wp} = this._editor.$wp;
-        if ($wp) {
-          $wp.querySelector('div:first-child').remove();
-          $wp.querySelector('.fr-placeholder').style['margin-top'] = 0;
-        }
-
         if (this._editor.events) {
           // bind contentChange and keyup event to froalaModel
           this._editor.events.on('contentChanged', () => {

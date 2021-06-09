@@ -6,8 +6,11 @@ export default [
     path: '/about',
     title: 'About',
   }, {
-    path: '/editor',
-    title: '编辑器',
+    path: '/Froala',
+    title: 'Froala编辑器',
+  }, {
+    path: '/Editor',
+    title: 'Editor编辑器',
   }, {
     path: '/table',
     title: '表格',

@@ -2,7 +2,7 @@
 <a-card class="m-4">
   <div class="flex">
     <div class="flex-1">{{ content }}</div>
-    <froala v-model="content" class="flex-2" />
+    <froala v-model="content" class="flex-auto" />
   </div>
 </a-card>
 </template>
