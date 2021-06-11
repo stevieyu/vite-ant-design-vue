@@ -1,7 +1,7 @@
 <template>
 <a-card class="m-4">
   <div class="flex">
-    <div class="flex-1">{{ content }}</div>
+    <div class="w-32">{{ content }}</div>
     <froala v-model="content" class="flex-auto" />
   </div>
 </a-card>
@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      content: '',
+      content: '<p>wdwqdwqdwqdqwddqd</p><p>dwdwdwdwdwd</p>',
     };
   },
 };

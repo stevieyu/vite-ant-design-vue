@@ -15,8 +15,8 @@ module.exports = {
     'google',
   ],
   rules: {
-    'no-console': process.env.VITE_USER_NODE_ENV !== 'development' ? 2 : 0,
-    'no-debugger': process.env.VITE_USER_NODE_ENV !== 'development' ? 2 : 0,
+    'no-console': 2,
+    'no-debugger': 2,
     'max-len': 0,
     'no-prototype-builtins': 0,
   },

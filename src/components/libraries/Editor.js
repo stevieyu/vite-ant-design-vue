@@ -35,9 +35,10 @@ export default {
   },
   async mounted() {
     await load([
-      'https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2/dist/editor.min.js',
-      'https://cdn.jsdelivr.net/npm/@editorjs/header/dist/bundle.min.js',
-      'https://cdn.jsdelivr.net/npm/@editorjs/list/dist/bundle.min.js',
+      'https://cdn.jsdelivr.net/npm/@editorjs/editorjs',
+      'https://cdn.jsdelivr.net/npm/@editorjs/header',
+      'https://cdn.jsdelivr.net/npm/@editorjs/list',
+      'https://cdn.jsdelivr.net/npm/@editorjs/simple-image',
     ], 'editorjs');
     this.init();
   },
@@ -49,12 +50,13 @@ export default {
   },
   methods: {
     init() {
-      const {EditorJS, Header, List} = window;
+      const {EditorJS, Header, List, SimpleImage} = window;
       const editor = new EditorJS({
         ...this.currentConfig,
         holder: this.$el,
         i18n,
         tools: {
+          image: SimpleImage,
           header: {
             class: Header,
             config: {

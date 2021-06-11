@@ -2,14 +2,16 @@
 // https://froala.com/wysiwyg-editor/
 // https://froala.com/wysiwyg-editor/docs/
 import {h} from 'vue';
+import {debounce} from 'lodash-es';
 import load from '@/utils/load';
 
 export default {
+  name: 'Froala',
   props: ['tag', 'modelValue', 'config', 'onManualControllerReady'],
   emits: ['update:modelValue'],
   watch: {
-    modelValue() {
-      this.model = this.modelValue;
+    modelValue(val) {
+      this.model = val;
       this.updateValue();
     },
   },
@@ -186,7 +188,11 @@ export default {
 
       this.onManualControllerReady(controls);
     },
-
+    updateModelDebounce: debounce(function() {
+      /* eslint-disable */
+      this.updateModel();
+      /* eslint-enable */
+    }, 100),
     updateModel() {
       let modelContent = '';
 
@@ -214,6 +220,14 @@ export default {
         }
       }
 
+      const tEl = document.createElement('div');
+      tEl.innerHTML = modelContent;
+      const licenseEl = tEl.querySelector('p:last-child');
+      if (licenseEl.innerText.includes('Powered by')) {
+        licenseEl.remove();
+        modelContent = tEl.innerHTML;
+      }
+
       this.oldModel = modelContent;
       this.$emit('update:modelValue', modelContent);
     },
@@ -222,12 +236,12 @@ export default {
         if (this._editor.events) {
           // bind contentChange and keyup event to froalaModel
           this._editor.events.on('contentChanged', () => {
-            this.updateModel();
+            this.updateModelDebounce();
           });
 
           if (this.currentConfig.immediateVueModelUpdate) {
             this._editor.events.on('keyup', () => {
-              this.updateModel();
+              this.updateModelDebounce();
             });
           }
         }

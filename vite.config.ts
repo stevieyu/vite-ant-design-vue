@@ -5,8 +5,7 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import eslint from '@rollup/plugin-eslint';
 
-// console.error(`/.*\.(vue|js|jsx|ts|tsx)$/m`);
-console.error(path.resolve(__dirname, 'src').replace(/\\/g, '\\\\'));
+const isProd = process.env.NODE_ENV === 'production'
 
 export default defineConfig({
   resolve: {
@@ -24,7 +23,7 @@ export default defineConfig({
     ]
   },
   plugins: [
-    eslint({
+    !isProd && eslint({
       fix: true,
       formatter: 'friendly',
       include: /.*\.(vue|js|jsx|ts|tsx)$/m,

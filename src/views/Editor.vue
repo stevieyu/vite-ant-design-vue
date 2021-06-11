@@ -1,7 +1,7 @@
 <template>
   <a-card class="m-4">
     <div class="flex">
-      <div class="flex-1">{{ content }}</div>
+      <div class="w-32">{{ content }}</div>
       <editor v-model="content" class="flex-auto"/>
     </div>
   </a-card>
