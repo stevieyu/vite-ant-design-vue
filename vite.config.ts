@@ -5,6 +5,9 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import eslint from '@rollup/plugin-eslint';
 
+// console.error(`/.*\.(vue|js|jsx|ts|tsx)$/m`);
+console.error(path.resolve(__dirname, 'src').replace(/\\/g, '\\\\'));
+
 export default defineConfig({
   resolve: {
     alias: {
@@ -24,7 +27,8 @@ export default defineConfig({
     eslint({
       fix: true,
       formatter: 'friendly',
-      include: '**/*.+(vue|js|jsx|ts|tsx)',
+      include: /.*\.(vue|js|jsx|ts|tsx)$/m,
+      exclude: [/node_modules|vue&type/, /^src/],
     }),
     voie({
       pagesDir: 'src/views',
