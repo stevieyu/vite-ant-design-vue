@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
-    "ant-design-vue": "^2.2.0-0",
+    "ant-design-vue": "^2.2.0-beta.3",
     "dayjs": "^1.10.5",
     "ky": "^0.28.5",
     "loadjs": "^4.2.0",
     "string-similarity": "^4.0.4",
     "vue": "^3.0.11",
     "vue-router": "^4.0.8",
-    "vue-types": "^4.0.0-0",
+    "vue-types": "^4.0.0-rc.3",
     "vuedraggable": "^4.0.3",
     "vuex": "^4.0.1",
     "yup": "^0.32.9"
@@ -26,8 +26,8 @@
     "@vitejs/plugin-vue": "^1.2.3",
     "@vitejs/plugin-vue-jsx": "^1.1.5",
     "@vue/compiler-sfc": "^3.1.1",
-    "sass": "^1.34.1",
-    "tailwindcss": "^2.2.0-canary.14",
+    "sass": "^1.35.0",
+    "tailwindcss": "^2.2.0-canary.16",
     "vite": "^2.3.7",
     "vite-plugin-voie": "^0.7.3"
   },

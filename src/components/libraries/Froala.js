@@ -223,7 +223,7 @@ export default {
       const tEl = document.createElement('div');
       tEl.innerHTML = modelContent;
       const licenseEl = tEl.querySelector('p:last-child');
-      if (licenseEl.innerText.includes('Powered by')) {
+      if (licenseEl && licenseEl.innerText.includes('Powered by')) {
         licenseEl.remove();
         modelContent = tEl.innerHTML;
       }

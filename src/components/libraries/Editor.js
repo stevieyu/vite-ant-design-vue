@@ -1,10 +1,11 @@
 // https://froala.com/wysiwyg-editor/
 // https://froala.com/wysiwyg-editor/docs/
-import {h} from 'vue';
+import {h, toRaw} from 'vue';
 import load from '@/utils/load';
 
 export default {
-  props: ['tag', 'modelValue', 'config'],
+  name: 'EditorJs',
+  props: ['modelValue', 'config'],
   emits: ['update:modelValue'],
   render() {
     return h(
@@ -22,15 +23,23 @@ export default {
   computed: {
     currentConfig() {
       return {
-        data: {},
+        autofocus: true,
         ...Object(this.config),
+        data: this.modelValue,
       };
     },
   },
   watch: {
+    modelValue(val) {
+      val = toRaw(val);
+      if (JSON.stringify(val) === JSON.stringify(toRaw(this.model))) return;
+      this.model = val;
+
+      if (!this._editor) return;
+      this._editor.render(val);
+    },
   },
   created() {
-    this.currentTag = this.tag || this.currentTag;
     this.model = this.modelValue;
   },
   async mounted() {
@@ -51,7 +60,7 @@ export default {
   methods: {
     init() {
       const {EditorJS, Header, List, SimpleImage} = window;
-      const editor = new EditorJS({
+      this._editor = new EditorJS({
         ...this.currentConfig,
         holder: this.$el,
         i18n,
@@ -70,12 +79,17 @@ export default {
             inlineToolbar: true,
           },
         },
+        onChange: this.onChange,
       });
-      editor.isReady.then(() => {
-        // console.log(editor);
-      });
-
-      this._editor = editor;
+    },
+    onChange() {
+      if (!this._editor) return;
+      this._editor.save()
+          .then((savedData) => {
+            if (JSON.stringify(toRaw(this.model)) === savedData) return;
+            this.model = savedData;
+            this.$emit('update:modelValue', savedData);
+          });
     },
   },
 };
