@@ -23,16 +23,22 @@ export default defineConfig({
     ]
   },
   plugins: [
-    !isProd && eslint({
-      fix: true,
-      formatter: 'friendly',
-      include: /.*\.(vue|js|jsx|ts|tsx)$/m,
-      exclude: [/node_modules|vue&type/, /^src/],
-    }),
-    voie({
-      pagesDir: 'src/views',
-      // importMode: 'sync',
-    }),
+    !isProd && {
+      ...eslint({
+        fix: true,
+        formatter: 'friendly',
+        include: /.*\.(vue|js|jsx|ts|tsx)$/m,
+        exclude: [/node_modules|vue&type/, /^src/],
+      }),
+      enforce: 'pre'
+    },
+    {
+      ...voie({
+        pagesDir: 'src/views',
+        // importMode: 'sync',
+      }),
+      enforce: 'pre'
+    },
     vue({
       template: {
         compilerOptions: {
