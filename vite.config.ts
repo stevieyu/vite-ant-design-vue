@@ -48,4 +48,11 @@ export default defineConfig({
     }),
     vueJsx(),
   ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true
+      }
+    }
+  }
 });

@@ -9,3 +9,8 @@ cp .env.development .env.development.local
 ```shell script
 cp .env.production .env.production.local
 ```
+
+### deploy surge
+```shell
+pnpx -y surge dist vvd.surge.stevie.top
+```

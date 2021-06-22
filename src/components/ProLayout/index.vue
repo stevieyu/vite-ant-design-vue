@@ -7,8 +7,8 @@
         <a-layout-content class="overflow-y-auto">
           <slot />
         </a-layout-content>
-        <a-layout-footer>
-          ©2020 Created by XXX
+        <a-layout-footer class="py-1 px-2 text-gray-300">
+          ©2021 Created by XXX
         </a-layout-footer>
       </a-layout>
     </a-layout>
@@ -37,14 +37,3 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-.pro-layout{
-  .ant-layout-header{
-    background: #fff;
-  }
-  .ant-layout-footer{
-    padding: 12px 24px;
-  }
-}
-
-</style>

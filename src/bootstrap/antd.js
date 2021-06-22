@@ -1,4 +1,5 @@
-import 'ant-design-vue/dist/antd.css';
+import 'ant-design-vue/dist/antd.min.css';
+// import 'ant-design-vue/dist/antd.dark.less';
 import {
   Tree,
   Layout,

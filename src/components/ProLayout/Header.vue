@@ -1,5 +1,5 @@
 <template>
-  <a-layout-header class="shadow p-0 flex justify-between">
+  <a-layout-header class="shadow p-0 flex justify-between bg-white" >
     <div class="px-6 cursor-pointer hover:bg-gray-100" @click="onClickMenuIco">
       <div class="text-xl" v-is="collapsed ? 'menu-unfold-outlined':'menu-fold-outlined'"></div>
     </div>
