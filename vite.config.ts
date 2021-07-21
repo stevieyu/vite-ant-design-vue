@@ -41,6 +41,7 @@ export default defineConfig({
       enforce: 'pre'
     },
     ViteComponents({
+      deep: false,
       customComponentResolvers: [
         AntDesignVueResolver(),
       ]
