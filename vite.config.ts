@@ -4,6 +4,7 @@ import voie from 'vite-plugin-voie';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import eslint from '@rollup/plugin-eslint';
+import ViteComponents, {AntDesignVueResolver} from 'vite-plugin-components'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -39,6 +40,11 @@ export default defineConfig({
       }),
       enforce: 'pre'
     },
+    ViteComponents({
+      customComponentResolvers: [
+        AntDesignVueResolver(),
+      ]
+    }),
     vue({
       template: {
         compilerOptions: {

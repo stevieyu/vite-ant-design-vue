@@ -4,8 +4,6 @@ ky.get('https://httpbin.org/anything/sdadas');
 
 import './offlineNotice';
 
-import antd from './antd';
-
 import router from './router';
 import {useRoute} from 'vue-router';
 
@@ -16,7 +14,5 @@ export default {
       const path = useRoute().path;
       return path + (path.endsWith('/') ? '' : '/') + pathToAppend;
     };
-
-    app.use(antd);
   },
 };

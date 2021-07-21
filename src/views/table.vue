@@ -4,10 +4,8 @@
   </a-card>
 </template>
 <script>
-import {Table} from 'ant-design-vue';
 export default {
   components: {
-    [Table.name]: Table,
   },
   setup() {
     return {
