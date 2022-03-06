@@ -1,10 +1,11 @@
 import path from 'path'
 import { defineConfig } from 'vite'
-import voie from 'vite-plugin-voie';
+import Pages from 'vite-plugin-pages';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import eslint from '@rollup/plugin-eslint';
-import styleImport from 'vite-plugin-style-import';
+
+import eslint from 'vite-plugin-eslint';
+import {createStyleImportPlugin} from 'vite-plugin-style-import';
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -28,19 +29,20 @@ export default defineConfig({
       ...eslint({
         fix: true,
         formatter: 'friendly',
-        include: /.*\.(vue|js|jsx|ts|tsx)$/m,
-        exclude: [/node_modules|vue&type/, /^src/],
+        // include: /.*\.(vue|js|jsx|ts|tsx)$/m,
+        // exclude: [/node_modules|vue&type/, /^src/],
+        exclude: ['node_modules'],
       }),
       enforce: 'pre'
     },
     {
-      ...voie({
-        pagesDir: 'src/views',
-        // importMode: 'sync',
+      ...Pages({
+        dirs : 'src/views',
+        importMode: 'async',
       }),
       enforce: 'pre'
     },
-    styleImport({
+    createStyleImportPlugin({
       libs: [
         {
           libraryName: 'ant-design-vue',

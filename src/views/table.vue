@@ -1,6 +1,6 @@
-<template>
+  <template>
   <a-card class="m-4">
-    <a-table :dataSource="dataSource" :columns="columns" />
+    <a-table :dataSource="dataSource" :columns="columns" size="small" />
   </a-card>
 </template>
 <script>

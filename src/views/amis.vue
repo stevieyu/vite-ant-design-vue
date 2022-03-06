@@ -1,13 +1,13 @@
 <template>
   <textarea v-model="aJson" class="w-full"/>
-  <amis :json="json"/>
+  <LibAmis :json="json"/>
 </template>
 
 <script>
-import amis from '../components/libraries/amis';
+import LibAmis from '../components/libraries/LibAmis';
 export default {
   components: {
-    amis,
+    LibAmis,
   },
   data() {
     return {

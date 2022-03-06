@@ -1,3 +1,5 @@
+const IS_DEV = process.env.VITE_USER_NODE_ENV === 'development';
+
 module.exports = {
   root: true,
   env: {
@@ -10,16 +12,20 @@ module.exports = {
     sourceType: 'module',
   },
   extends: [
-    'plugin:vue/vue3-essential',
     'eslint:recommended',
+    'plugin:vue/vue3-essential',
     'google',
   ],
   rules: {
-    'no-console': 2,
-    'no-debugger': 2,
+    'no-console': IS_DEV ? 0 : 2,
+    'no-debugger': IS_DEV ? 0 : 2,
+    'vue/multi-word-component-names': 0,
     'max-len': 0,
     'no-prototype-builtins': 0,
   },
   globals: {
+    $ref: true,
+    $shallowRef: true,
+    $computed: true,
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <a-layout-header class="shadow p-0 flex justify-between bg-white" >
     <div class="px-6 cursor-pointer hover:bg-gray-100" @click="onClickMenuIco">
-      <div class="text-xl" v-is="collapsed ? 'menu-unfold-outlined':'menu-fold-outlined'"></div>
+      <component class="text-xl" :is="collapsed ? 'menu-unfold-outlined':'menu-fold-outlined'"></component>
     </div>
     <a-dropdown class="mx-4">
       <div class="hover:bg-gray-100 cursor-pointer text-center px-4">nick name</div>

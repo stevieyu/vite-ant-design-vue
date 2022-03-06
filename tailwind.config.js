@@ -2,13 +2,7 @@
  * @type {import('tailwindcss/defaultConfig')}
  */
 module.exports = {
-  mode: 'jit',
-  purge: [
+  content: [
     './src/**/*.vue',
   ],
-  theme: {
-    extend: {},
-  },
-  variants: {},
-  plugins: [],
 };

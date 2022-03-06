@@ -47,9 +47,11 @@ export default {
     async load() {
       await load([
         'https://cdn.jsdelivr.net/npm/amis@1/sdk/sdk.min.js',
+      ], 'amis-core');
+      load([
         'https://cdn.jsdelivr.net/npm/amis@1/sdk/sdk.min.css',
         'https://cdn.jsdelivr.net/npm/amis@1/sdk/antd.min.css',
-      ], 'amis');
+      ], 'amis-ext');
 
       const {amisRequire} = window;
 

@@ -3,7 +3,7 @@
     <a-layout class="pro-layout">
       <SiderMenuWrapper :menus="menus" :collapsed="collapsed" class="shadow"/>
       <a-layout class="max-h-screen">
-        <Header v-model:collapsed="collapsed" />
+        <CuHeader v-model:collapsed="collapsed" />
         <a-layout-content class="overflow-y-auto">
           <slot />
         </a-layout-content>
@@ -16,7 +16,7 @@
 </template>
 <script>
 import SiderMenuWrapper from './SiderMenuWrapper.vue';
-import Header from './Header.vue';
+import CuHeader from './CuHeader.vue';
 
 import locale from 'ant-design-vue/es/locale/zh_CN';
 
@@ -26,7 +26,7 @@ import '/src/utils/dayjsInit';
 export default {
   components: {
     SiderMenuWrapper,
-    Header,
+    CuHeader,
   },
   props: ['menus'],
   data() {
