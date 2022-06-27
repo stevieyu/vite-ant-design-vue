@@ -1,7 +1,8 @@
 import path from 'path'
 import { defineConfig } from 'vite'
-import Pages from 'vite-plugin-pages';
+import pages from 'vite-plugin-pages';
 import vue from '@vitejs/plugin-vue';
+import unocss from 'unocss/vite';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
 import eslint from 'vite-plugin-eslint';
@@ -35,13 +36,10 @@ export default defineConfig({
       }),
       enforce: 'pre'
     },
-    {
-      ...Pages({
-        dirs : 'src/views',
-        importMode: 'async',
-      }),
-      enforce: 'pre'
-    },
+    pages({
+      dirs : 'src/views',
+      importMode: 'async',
+    }),
     createStyleImportPlugin({
       libs: [
         {
@@ -53,7 +51,10 @@ export default defineConfig({
         },
       ],
     }),
+    unocss({}),
     vue({
+      // https://staging-cn.vuejs.org/guide/extras/reactivity-transform.html
+      reactivityTransform: true,
       template: {
         compilerOptions: {
           isCustomElement: tag => !!['wc-', 'ce-'].filter(i => tag.startsWith(i)).length

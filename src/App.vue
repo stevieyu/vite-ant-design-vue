@@ -1,39 +1,40 @@
 <template>
-  <router-view v-if="isAuthPage"/>
-  <pro-layout v-else :menus="menus">
+  <a-config-provider :locale="locale">
+  <router-view v-if="!showLayout"/>
+  <basic-layout v-else>
     <router-view />
-  </pro-layout>
+  </basic-layout>
+  </a-config-provider>
 </template>
-<script>
-import ProLayout from './components/ProLayout/index.vue';
-import menus from './mock/menus';
+<script setup>
+import BasicLayout from './components/BasicLayout.vue';
+import {RouterView} from 'vue-router';
+import {ConfigProvider as AConfigProvider} from 'ant-design-vue';
 
 import {useRoute} from 'vue-router';
-import {watch, ref} from 'vue';
+import locale from './utils/antdvLocale';
 
-export default {
-  components: {
-    ProLayout,
-  },
-  setup() {
-    const route = useRoute();
+const route = useRoute();
 
-    const isAuthPage = ref(true);
-    watch(route, () => {
-      const paths = [
-        '/login',
-        '/amis',
-      ];
-      for (const path of paths) {
-        isAuthPage.value = route.fullPath.includes(path);
-        if (isAuthPage.value) break;
-      }
-    });
+const showLayout = $computed(() => {
+  let show = false;
 
-    return {
-      menus,
-      isAuthPage,
-    };
-  },
-};
+  const paths = [
+    '/login',
+    '/amis',
+  ];
+
+  const fullPath = route.fullPath;
+  for (const path of paths) {
+    show = !fullPath.includes(path);
+    if (!show) break;
+  }
+  return show;
+});
+
 </script>
+<style>
+.rich-text img{
+  cursor: pointer;
+}
+</style>

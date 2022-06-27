@@ -3,8 +3,8 @@
 //https://github.com/tinymce/tinymce
 //https://www.tinymce.com/docs/
 import {h} from 'vue'
-import load from '@/helpers/load';
-import FileUpload from "@/helpers/FileUpload";
+import load from '@/utils/load';
+import FileUpload from "@/utils/FileUpload";
 
 export default {
   name: 'Tinymce',
@@ -38,7 +38,7 @@ export default {
         relative_urls: false,
         convert_urls: false,
         autoresize_bottom_margin: 1,
-        plugins: 'fullscreen preview print autoresize image media link table code help quickbars imgUpload audioUpload',
+        plugins: 'fullscreen preview autoresize image media link table code help quickbars',
         toolbar: 'imageupload audioupload',
         images_upload_handler: this.imagesUploadHandler,
         init_instance_callback: this.initInstanceCallback,
@@ -75,24 +75,23 @@ export default {
       });
       editor.setContent(this.modelValue || '');
     },
-    imagesUploadHandler(blobInfo, success, failure) {
-      // console.log(blobInfo.blob());
-      // success('data:image/png;base64,' + blobInfo.base64());
-      (new FileUpload(getPath()))
-        .imgOptions({
-          maxWidth: 1500,
-        })
-        .uploadFile(blobInfo.blob())
-        .then(success)
-        .catch((e) => {
-          failure(e)
-          this.instance.undoManager.undo()
-        });
+    imagesUploadHandler(blobInfo) {
+      return new Promise((resolve, reject) => {
+        (new FileUpload())
+            .imgOptions({
+              maxWidth: 1500,
+            })
+            .uploadFile(blobInfo.blob())
+            .then((e) => {
+              resolve(e)
+            })
+            .catch((e) => {
+              reject(e)
+              this.instance.undoManager.undo()
+            });
+      })
     },
     async init() {
-      tinymce.PluginManager.add('imgUpload', imageUpload);
-      tinymce.PluginManager.add('audioUpload', audioUpload);
-
       let config = this.dcf;
       this.config && Object.assign(config, this.config);
       config.target = this.$el;
@@ -102,11 +101,10 @@ export default {
   },
   created() { },
   async mounted() {
-    await load('https://cdn.jsdelivr.net/npm/tinymce/tinymce.min.js', 'tinymce');
+    await load('https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js', 'tinymce');
     await load([
-        '/tinymce/media.js',
         'https://cdn.jsdelivr.net/npm/tinymce-i18n/langs5/zh_CN.min.js'
-    ], 'tinymce-media');
+    ], 'tinymce-ext');
 
     await this.init();
   },
@@ -115,118 +113,7 @@ export default {
   },
 };
 
-const getPath = (subDir = 'images') => `editors/${subDir}/${new Date().format('yyyy/MM/dd')}`
-
-const imageUpload = (editor) => {
-  let fileInput;
-  const event = {
-    async fileChange(event) {
-      if (!event.target.files || !event.target.files.length) return;
-      const loadingInstance = $ele.$loading({
-        target: editor.editorContainer.parentElement,
-      });
-
-      let filesUrl
-
-      try {
-        filesUrl = await ((new FileUpload(getPath())))
-          .imgOptions({
-            maxWidth: 1500,
-          })
-          .uploadStart(event.target.files)
-      }catch (e){
-        loadingInstance.close()
-        return
-      }
 
 
-      let html = `<div>`
-      for (const fileUrl of filesUrl) {
-        html += `<img src="${fileUrl}">`;
-      }
-      html += `</div>`
-      editor.insertContent(html);
-
-      fileInput.value = '';
-      loadingInstance.close();
-    },
-    click() {
-      if (!fileInput) {
-        fileInput = document.createElement('input');
-        fileInput.setAttribute('type', 'file');
-        fileInput.setAttribute('multiple', 'true');
-        fileInput.setAttribute('accept', 'image/*');
-        fileInput.classList.add('tinymce-img');
-        fileInput.classList.add('hide');
-        fileInput.addEventListener('change', event.fileChange);
-      }
-      fileInput.click();
-    },
-  };
-
-  editor.ui.registry.addButton('imageupload', {
-    // icon: 'image',
-    // tooltip: '图片',
-    text: '多图批量图片',
-    onAction: event.click,
-  });
-
-  return {
-  };
-}
-
-const audioUpload = (editor) => {
-  let audioFile;
-
-  const event = {
-    async fileChange(event) {
-      if (!event.target.files || !event.target.files.length) return;
-      const loadingInstance = $ele.$loading({
-        target: editor.editorContainer.parentElement,
-      });
-
-      let filesUrl
-      try {
-        filesUrl = await ((new FileUpload(getPath('audio'))))
-          .uploadStart(event.target.files)
-      }catch (e){
-        loadingInstance.close()
-        return
-      }
-
-      let html = `<div>`
-      for (const fileUrl of filesUrl) {
-        html += `<audio controls controlslist="nodownload" style="background-color:rgb(241, 243, 244);width:100%">
-                  <source src="${fileUrl}"  type="audio/mp3">
-                </audio>`;
-      }
-      html += `</div>`
-      editor.selection.setContent(html)
-
-      audioFile.value = '';
-      loadingInstance.close();
-    },
-    click() {
-      if (!audioFile) {
-        audioFile = document.createElement('input');
-        audioFile.setAttribute('type', 'file');
-        audioFile.setAttribute('accept', '.mp3');
-        audioFile.classList.add('tinymce-img');
-        audioFile.classList.add('hide');
-        audioFile.addEventListener('change', event.fileChange);
-      }
-      audioFile.click();
-    },
-  };
-  editor.ui.registry.addButton('audioupload', {
-    // icon: 'image',
-    // tooltip: '图片',
-    text: '上传音频',
-    onAction: event.click,
-  });
-
-  return {
-  };
-}
 
 

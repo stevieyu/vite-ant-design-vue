@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory, createWebHashHistory} from 'vue-router';
+import {createRouter, createWebHistory, createWebHashHistory, useRoute} from 'vue-router';
 import routes from '~pages';
 
 const history = import.meta.env.VITE_ROUTER_HASH !== 'true' ? createWebHistory() : createWebHashHistory();
@@ -11,8 +11,8 @@ const router = createRouter({
   },
 });
 
-router.beforeEach((to, from, next) => {
-  next();
-});
+// router.beforeEach((to, from, next) => {
+//   next();
+// });
 
 export default router;
