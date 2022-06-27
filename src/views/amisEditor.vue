@@ -72,10 +72,14 @@ const im = messageEventListener('iframe-message');
  */
 const amisIframe = $ref(null);
 onMounted(async () => {
-  await Promise.all([
-    new Promise((resolve) => amisIframe.onload = resolve),
-    fetchPage(),
-  ]);
+  try {
+    await Promise.all([
+      new Promise((resolve) => amisIframe.onload = resolve),
+      fetchPage(),
+    ]);
+  } catch (e) {
+    //
+  }
   spinning = false;
 
   im.on((data) => {
