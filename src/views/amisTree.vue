@@ -20,8 +20,8 @@ const schema = {
     'stacked': true,
     'className': 'min-h-screen',
     'draggable': true,
-    'saveOrderApi': '/nav',
-    'source': '/nav',
+    'saveOrderApi': '/navs',
+    'source': '/navs',
     'itemActions': [
       {
         'type': 'button-group',
@@ -30,7 +30,13 @@ const schema = {
             'type': 'button',
             'label': '查看',
             'actionType': 'link',
-            'link': '/amisRender?id=${id}',
+            'link': '/render?id=${id}',
+          },
+          {
+            'type': 'button',
+            'label': '编辑',
+            'actionType': 'link',
+            'link': '/amisEditor?id=${id}',
           },
           {
             'type': 'dropdown-button',
@@ -40,13 +46,11 @@ const schema = {
             'buttons': [
               {
                 'type': 'button',
-                'label': '编辑',
-                'actionType': 'link',
-                'link': '/amisEditor?id=${id}',
-              },
-              {
-                'type': 'button',
                 'label': '删除',
+                'source': {
+                  'method': 'delete',
+                  'url': '/navs/${id}',
+                },
               },
             ],
           },

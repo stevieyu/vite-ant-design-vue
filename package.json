@@ -5,10 +5,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.jsx,.vue --format friendly --fix src/",
-    "surge": "cp dist/index.html dist/200.html && pnpx -y surge dist vvd.surge.stevie.top",
+    "surge": "cp dist/index.html dist/200.html && pnpx surge dist vvd.surge.stevie.top",
     "postinstall": "husky install",
-    "d": "git pull && npm run build",
-    "mock": "pnpx json-server -H 0.0.0.0 -p 3999 -w public/.mockend.json"
+    "d": "git pull && npm run build"
   },
   "dependencies": {
     "@ant-design-vue/pro-layout": "^3.1.13",

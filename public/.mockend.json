@@ -1,6 +1,10 @@
 {
   "nav": {
-    "data": [
+    "links": [
+      {
+        "label": "3333",
+        "id": 4
+      },
       {
         "label": "2222",
         "id": 3,
@@ -49,6 +53,21 @@
         ]
       },
       "id": 3
+    },
+    {
+      "name": "3333",
+      "data": {
+        "type": "page",
+        "title": "xxx",
+        "body": [
+          {
+            "type": "tpl",
+            "tpl": "这是你刚刚新增的页面。",
+            "inline": false
+          }
+        ]
+      },
+      "id": 4
     }
   ]
 }

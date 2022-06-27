@@ -1,5 +1,8 @@
+export let errMsg = true;
+
 export const url = (path, query) => {
-  const uri = 'http://127.0.0.1:3999';
+  const uri = `${import.meta.env.VITE_API_ORIGIN}/records`;
+
   const url = new URL(`${uri}/${path}`);
   if (query) {
     for (const k of Object.keys(query)) {
@@ -31,7 +34,7 @@ export const req = async (path = '', method = 'get', query = null, json = null) 
     if (typeof res.json === 'function') res = await res.json();
     return res;
   } catch (err) {
-    $msg.error(err.message);
+    if (errMsg) $msg.error(err.message);
     throw err;
   }
 };
@@ -53,10 +56,17 @@ export const resource = (name) => {
     update(id, data) {
       return put(`${name}/${id}`, data);
     },
-    updateOrCreate(id, data) {
-      if (id) {
-        return this.update(id, data);
+    async updateOrCreate(id, data) {
+      try {
+        errMsg = false;
+        if (id && await this.get(id)) {
+          errMsg = true;
+          return this.update(id, data);
+        }
+      } catch (e) {
+        //
       }
+      errMsg = true;
       return this.create(data);
     },
     delete(id) {

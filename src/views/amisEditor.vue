@@ -15,10 +15,9 @@
 import {onMounted, onBeforeUnmount, toRaw} from 'vue';
 import {useRoute} from 'vue-router';
 import messageEventListener from '../utils/messageEventListener';
-import crud, {gppd} from '../utils/crud';
+import crud from '../utils/crud';
 
-const src = `http://localhost:3000/?event_name=iframe-message`;
-// const src = `http://amis-editor.surge.stevie.top/?event_name=iframe-message`;
+const src = `${import.meta.env.VITE_AMIS_EDITOR_ORIGIN}/?event_name=iframe-message`;
 
 const pagesCrud = crud('pages');
 const route = useRoute();
@@ -29,7 +28,7 @@ const modalForm = $ref(null);
 const modal = $ref({
   refForm: null,
   visible: false,
-  formId: route.query.id || '',
+  formId: route.query.id || null,
   form: {
     name: '',
     data: null,
@@ -42,19 +41,16 @@ const modalSave = async () => {
   }
   spinning = true;
   await modalForm.validate();
-  const res = await pagesCrud.updateOrCreate(modal.formId, modal.form);
 
-  const nav = await gppd.get('nav');
-  if (!modal.formId) {
-    nav.links.splice(0, 0, {
-      label: res.name,
-      id: res.id,
-    });
-  } else {
-    //
-  }
+  const res = await crud('navs').updateOrCreate(modal.formId, {
+    label: modal.form.name,
+    id: modal.formId,
+  });
 
-  await gppd.post('nav', nav);
+  await pagesCrud.updateOrCreate(modal.formId || res, {
+    id: modal.formId || res,
+    ...modal.form,
+  });
 
   history.back();
 

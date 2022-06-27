@@ -40,10 +40,10 @@ export default {
 
           return api;
         },
-        // responseAdaptor: (api, payload, query, request, response) => {
-        // console.log('responseAdaptor', api, payload, query, request, response);
-        // return payload;
-        // },
+        responseAdaptor: (api, payload, query, request, response) => {
+          // console.log('responseAdaptor', api, payload, query, request, response);
+          return typeof payload.records !== 'undefined' ? payload.records : payload;
+        },
         jumpTo: (to) => {
           if (!to) return;
           if (typeof to === 'string') {
@@ -81,7 +81,7 @@ export default {
           this.amisProps,
           this.amisConfig,
       );
-      console.log('amisSchema', this.amisSchema, this._amisInstance);
+      // console.log('amisSchema', this.amisSchema, this._amisInstance);
     },
   },
 };

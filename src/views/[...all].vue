@@ -13,15 +13,17 @@ let spinning = $ref(false);
 
 let schema = $ref(null);
 const fetchData = async () => {
+  if (!route.query.id) {
+    schema = {
+      'type': 'page',
+      'title': '404',
+    };
+    return;
+  }
   spinning = true;
 
-  let res;
-  if (route.query.id) {
-    res = await crud('pages').get(route.query.id);
-  }
-
+  const res = await crud('pages').get(route.query.id);
   schema = res.data;
-  console.log(res);
   spinning = false;
 };
 fetchData();
