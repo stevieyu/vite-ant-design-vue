@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "data": [
+      {
+        "label": "2222",
+        "id": 3,
+        "active": false,
+        "unfolded": false
+      },
+      {
+        "label": "demo",
+        "id": 2,
+        "active": false
+      }
+    ]
+  },
+  "pages": [
+    {
+      "name": "demoxx",
+      "data": {
+        "type": "page",
+        "title": "xxx",
+        "body": [
+          {
+            "type": "tpl",
+            "tpl": "这是你刚刚新增的页面。",
+            "inline": false
+          },
+          {
+            "type": "qrcode",
+            "value": "https://amis.baidu.com",
+            "id": "u:7d5ac24be700"
+          }
+        ]
+      },
+      "id": 2
+    },
+    {
+      "name": "2222",
+      "data": {
+        "type": "page",
+        "title": "xxx",
+        "body": [
+          {
+            "type": "tpl",
+            "tpl": "这是你刚刚新增的页面。",
+            "inline": false
+          }
+        ]
+      },
+      "id": 3
+    }
+  ]
+}
