@@ -20,9 +20,6 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: [
-        // 'moment',
-        // 'lodash-es',
-        // 'ant-design-vue/es/locale/zh_CN'
     ]
   },
   plugins: [
@@ -30,9 +27,6 @@ export default defineConfig({
       ...eslint({
         fix: true,
         formatter: 'friendly',
-        // include: /.*\.(vue|js|jsx|ts|tsx)$/m,
-        // exclude: [/node_modules|vue&type/, /^src/],
-        exclude: ['node_modules'],
       }),
       enforce: 'pre'
     },

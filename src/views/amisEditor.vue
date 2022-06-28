@@ -1,14 +1,14 @@
 <template>
   <a-spin tip="Loading..." :spinning="spinning">
     <iframe :src="src" style="border: none;width: 100vw;height: 100vh;" ref="amisIframe"></iframe>
-    <a-modal v-model:visible="modal.visible" title="基本信息" @ok="modalSave">
-      <a-form :model="modal.form" autocomplete="off" ref="modalForm">
-        <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请填写名称!' }]">
-          <a-input v-model:value="modal.form.name" />
-        </a-form-item>
-      </a-form>
-    </a-modal>
   </a-spin>
+  <a-modal v-model:visible="modal.visible" title="基本信息" @ok="modalSave" :confirm-loading="spinning">
+    <a-form :model="modal.form" autocomplete="off" ref="modalForm">
+      <a-form-item label="名称" name="name" :rules="[{ required: true, message: '请填写名称!' }]">
+        <a-input v-model:value="modal.form.name" />
+      </a-form-item>
+    </a-form>
+  </a-modal>
 </template>
 
 <script setup>
