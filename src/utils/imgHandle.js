@@ -9,7 +9,7 @@ import load from '@/utils/load';
 // require('blueimp-canvas-to-blob/js/canvas-to-blob.min')
 
 const url =
-  'https://cdn.jsdelivr.net/combine/' +
+  '//jsdelivr.stevie.top/combine/' +
   [
     'npm/blueimp-load-image/js/load-image.all.min.js',
     'npm/blueimp-canvas-to-blob/js/canvas-to-blob.min.js',

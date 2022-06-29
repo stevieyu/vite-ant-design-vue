@@ -17,6 +17,7 @@ const schema = {
   'type': 'page',
   'body': {
     'type': 'nav',
+    'name': 'navTree',
     'stacked': true,
     'className': 'min-h-screen',
     'draggable': true,
@@ -47,10 +48,15 @@ const schema = {
               {
                 'type': 'button',
                 'label': '删除',
-                'source': {
+                'actionType': 'ajax',
+                'api': {
                   'method': 'delete',
                   'url': '/navs/${id}',
                 },
+                'messages': {
+                  'success': '删除成功',
+                },
+                'reload': 'navTree',
               },
             ],
           },
