@@ -16,7 +16,9 @@ export const url = (path, query) => {
 
 export const req = async (path = '', method = 'get', query = null, json = null) => {
   const headers = new Headers();
-  headers.set('Content-Type', 'application/json');
+  if (['post', 'put'].includes(method)) {
+    headers.set('Content-Type', 'application/json');
+  }
 
   try {
     let res = await fetch(url(path, query), {
