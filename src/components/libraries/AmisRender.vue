@@ -62,11 +62,11 @@ export default {
   methods: {
     async load() {
       load([
-        'https://cdn.staticfile.org/amis/2.0.0/sdk.min.css',
-        'https://cdn.staticfile.org/amis/2.0.0/helper.min.css',
-        'https://cdn.staticfile.org/amis/2.0.0/iconfont.min.css',
+        // 'https://cdn.staticfile.org/amis/2.0.0/sdk.min.css', // probably not needed
         'https://cdn.staticfile.org/amis/2.0.0/antd.min.css',
-        'https://cdn.staticfile.org/font-awesome/6.1.1/css/solid.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0/iconfont.min.css',
+        // 'https://cdn.staticfile.org/amis/2.0.0/helper.min.css', // probably not needed
+        'https://cdn.staticfile.org/font-awesome/6.1.1/css/solid.min.css', // fixed staticfile not font
       ], 'amisCss');
       await load('https://cdn.staticfile.org/amis/2.0.0/sdk.min.js', 'amisJs');
 
