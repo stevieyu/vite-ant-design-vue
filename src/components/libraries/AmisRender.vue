@@ -62,12 +62,12 @@ export default {
   methods: {
     async load() {
       load([
-        '//jsdelivr.stevie.top/npm/amis@2.0.0-rc.16/sdk/sdk.min.css',
-        '//jsdelivr.stevie.top/npm/amis@2.0.0-rc.16/sdk/helper.min.css',
-        '//jsdelivr.stevie.top/npm/amis@2.0.0-rc.16/sdk/iconfont.min.css',
-        '//jsdelivr.stevie.top/npm/amis@2.0.0-rc.16/sdk/antd.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0-rc.20/sdk.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0-rc.20/helper.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0-rc.20/iconfont.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0-rc.20/antd.min.css',
       ], 'amisCss');
-      await load('//jsdelivr.stevie.top/npm/amis@2.0.0-rc.16/sdk/sdk.min.js', 'amisJs');
+      await load('https://cdn.staticfile.org/amis/2.0.0-rc.20/sdk.min.js', 'amisJs');
 
       const {amisRequire} = window;
 

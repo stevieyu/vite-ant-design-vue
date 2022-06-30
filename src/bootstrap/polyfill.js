@@ -6,7 +6,7 @@
 //   window.Temporal = Temporal;
 // }
 
-if (typeof document !== 'undefined' && !('adoptedStyleSheets' in document)) {
-  import('https://jsdelivr.stevie.top/npm/construct-style-sheets-polyfill@3.1.0/dist/adoptedStyleSheets.min.js');
-}
+// if (typeof document !== 'undefined' && !('adoptedStyleSheets' in document)) {
+//   import('https://jsdelivr.stevie.top/npm/construct-style-sheets-polyfill@3.1.0/dist/adoptedStyleSheets.min.js');
+// }
 

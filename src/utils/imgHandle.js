@@ -8,12 +8,10 @@ import load from '@/utils/load';
 // require('blueimp-load-image/js/load-image-scale')
 // require('blueimp-canvas-to-blob/js/canvas-to-blob.min')
 
-const url =
-  '//jsdelivr.stevie.top/combine/' +
-  [
-    'npm/blueimp-load-image/js/load-image.all.min.js',
-    'npm/blueimp-canvas-to-blob/js/canvas-to-blob.min.js',
-  ].join(',');
+const url = [
+  'https://cdn.staticfile.org/blueimp-load-image/5.16.0/load-image.min.js',
+];
+if (!window.Blob) url.push('https://cdn.staticfile.org/javascript-canvas-to-blob/3.29.0/js/canvas-to-blob.min.js');
 
 export default async (
     file,
