@@ -62,12 +62,13 @@ export default {
   methods: {
     async load() {
       load([
-        'https://cdn.staticfile.org/amis/2.0.0-rc.20/sdk.min.css',
-        'https://cdn.staticfile.org/amis/2.0.0-rc.20/helper.min.css',
-        'https://cdn.staticfile.org/amis/2.0.0-rc.20/iconfont.min.css',
-        'https://cdn.staticfile.org/amis/2.0.0-rc.20/antd.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0/sdk.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0/helper.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0/iconfont.min.css',
+        'https://cdn.staticfile.org/amis/2.0.0/antd.min.css',
+        'https://cdn.staticfile.org/font-awesome/6.1.1/css/solid.min.css',
       ], 'amisCss');
-      await load('https://cdn.staticfile.org/amis/2.0.0-rc.20/sdk.min.js', 'amisJs');
+      await load('https://cdn.staticfile.org/amis/2.0.0/sdk.min.js', 'amisJs');
 
       const {amisRequire} = window;
 
