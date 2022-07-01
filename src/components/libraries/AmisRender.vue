@@ -62,13 +62,13 @@ export default {
   methods: {
     async load() {
       load([
-        // 'https://cdn.staticfile.org/amis/2.0.0/sdk.min.css', // probably not needed
-        'https://cdn.staticfile.org/amis/2.0.0/antd.min.css',
-        'https://cdn.staticfile.org/amis/2.0.0/iconfont.min.css',
-        // 'https://cdn.staticfile.org/amis/2.0.0/helper.min.css', // probably not needed
-        'https://cdn.staticfile.org/font-awesome/6.1.1/css/solid.min.css', // fixed staticfile not font
+        // 'https://cdnjs.loli.net/ajax/libs/amis/2.0.0/sdk.min.css', // probably not needed
+        'https://cdnjs.loli.net/ajax/libs/amis/2.0.0/antd.min.css',
+        'https://cdnjs.loli.net/ajax/libs/amis/2.0.0/iconfont.min.css',
+        // 'https://cdnjs.loli.net/ajax/libs/amis/2.0.0/helper.min.css', // probably not needed
+        'https://cdnjs.loli.net/ajax/libs/font-awesome/6.1.1/css/solid.min.css', // fixed staticfile not font
       ], 'amisCss');
-      await load('https://cdn.staticfile.org/amis/2.0.0/sdk.min.js', 'amisJs');
+      await load('https://cdnjs.loli.net/ajax/libs/amis/2.0.0/sdk.min.js', 'amisJs');
 
       const {amisRequire} = window;
 

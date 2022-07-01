@@ -9,9 +9,9 @@ import load from '@/utils/load';
 // require('blueimp-canvas-to-blob/js/canvas-to-blob.min')
 
 const url = [
-  'https://cdn.staticfile.org/blueimp-load-image/5.16.0/load-image.min.js',
+  'https://cdnjs.loli.net/ajax/libs/blueimp-load-image/5.16.0/load-image.min.js',
 ];
-if (!window.Blob) url.push('https://cdn.staticfile.org/javascript-canvas-to-blob/3.29.0/js/canvas-to-blob.min.js');
+if (!window.Blob) url.push('https://cdnjs.loli.net/ajax/libs/javascript-canvas-to-blob/3.29.0/js/canvas-to-blob.min.js');
 
 export default async (
     file,
