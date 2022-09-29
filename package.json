@@ -30,7 +30,7 @@
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "@vue/compiler-sfc": "^3.2.20",
     "sass": "^1.42.1",
-    "unocss": "^0.41.0",
+    "unocss": "^0.45.25",
     "vite": "^2.6.5",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-pages": "^0.24.0",
