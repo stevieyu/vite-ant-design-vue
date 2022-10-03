@@ -33,7 +33,7 @@
     "unocss": "^0.45.25",
     "vite": "^2.6.5",
     "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-pages": "^0.24.0",
+    "vite-plugin-pages": "^0.26.0",
     "vite-plugin-style-import": "^2.0.0"
   },
   "optionalDependencies": {
