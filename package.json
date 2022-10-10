@@ -21,7 +21,7 @@
     "string-similarity": "^4.0.4",
     "vue": "^3.2.40",
     "vue-request": "^2.0.0-0",
-    "vue-router": "^4.0.11",
+    "vue-router": "^4.1.5",
     "vue-types": "^4.2.1",
     "vuedraggable": "^4.1.0"
   },
@@ -30,7 +30,7 @@
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "@vue/compiler-sfc": "^3.2.20",
     "sass": "^1.42.1",
-    "unocss": "^0.45.25",
+    "unocss": "^0.45.29",
     "vite": "^2.6.5",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-pages": "^0.26.0",
