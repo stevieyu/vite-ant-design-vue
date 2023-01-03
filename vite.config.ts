@@ -6,7 +6,10 @@ import unocss from 'unocss/vite';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
 import eslint from 'vite-plugin-eslint';
-import {createStyleImportPlugin} from 'vite-plugin-style-import';
+import Components from 'unplugin-vue-components/vite'
+import {
+  AntDesignVueResolver,
+} from 'unplugin-vue-components/resolvers'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -26,7 +29,6 @@ export default defineConfig({
     !isProd && {
       ...eslint({
         fix: true,
-        formatter: 'friendly',
       }),
       enforce: 'pre'
     },
@@ -34,15 +36,10 @@ export default defineConfig({
       dirs : 'src/views',
       importMode: 'async',
     }),
-    createStyleImportPlugin({
-      libs: [
-        {
-          libraryName: 'ant-design-vue',
-          esModule: true,
-          resolveStyle: (name) => {
-            return `ant-design-vue/es/${name}/style/css`;
-          },
-        },
+    Components({
+      dirs: ['src/components/import'],
+      resolvers: [
+        AntDesignVueResolver()
       ],
     }),
     unocss({}),

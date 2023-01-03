@@ -5,7 +5,7 @@
  * import load from '@/helpers/load';
  * await load('https://cdn.jsdelivr.net/npm/tinymce@4/tinymce.min.js', 'tinymce');
  */
-import loadjs from 'loadjs';
+import loadjs from 'loadjs'
 
 export default (urls, key, options = {}) =>
   new Promise((resolve, reject) => {
@@ -13,10 +13,9 @@ export default (urls, key, options = {}) =>
       success: resolve,
       error: reject,
       ...options,
-    };
-    if (loadjs.isDefined(key)) {
-      loadjs.ready(key, config);
-    } else {
-      loadjs(urls, key, config);
     }
-  });
+    if (loadjs.isDefined(key))
+      loadjs.ready(key, config)
+    else
+      loadjs(urls, key, config)
+  })

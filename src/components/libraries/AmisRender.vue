@@ -1,9 +1,6 @@
-<template>
-  <div><slot /></div>
-</template>
 <script>
-import load from '@/utils/load';
-import {url} from '@/utils/crud';
+import load from '@/utils/load'
+import { url } from '@/utils/crud'
 
 export default {
   name: 'AmisRender',
@@ -20,14 +17,14 @@ export default {
   computed: {
     amisSchema() {
       const defaultSchema = {
-      };
-      return this.schema || defaultSchema;
+      }
+      return this.schema || defaultSchema
     },
     amisProps() {
       const defaultProps = {
 
-      };
-      return {...defaultProps};
+      }
+      return { ...defaultProps }
     },
     amisConfig() {
       const defaultConfig = {
@@ -35,29 +32,33 @@ export default {
         requestAdaptor: (api) => {
           // console.log('requestAdaptor', api);
 
-          if (api.url.startsWith('/')) api.url = url(api.url);
-          api.withCredentials = false;
+          if (api.url.startsWith('/'))
+            api.url = url(api.url)
+          api.withCredentials = false
 
-          return api;
+          return api
         },
         responseAdaptor: (api, payload, query, request, response) => {
           // console.log('responseAdaptor', api, payload, query, request, response);
-          return typeof payload.records !== 'undefined' ? payload.records : payload;
+          return typeof payload.records !== 'undefined' ? payload.records : payload
         },
         jumpTo: (to) => {
-          if (!to) return;
+          if (!to)
+            return
           if (typeof to === 'string') {
-            if (to.startsWith('/')) return this.$router.push(to);
-            if (to.startsWith('?')) return this.$router.replace(to);
+            if (to.startsWith('/'))
+              return this.$router.push(to)
+            if (to.startsWith('?'))
+              return this.$router.replace(to)
           }
-          location.href = to;
+          location.href = to
         },
-      };
-      return {...this.config, ...defaultConfig};
+      }
+      return { ...this.config, ...defaultConfig }
     },
   },
   mounted() {
-    this.load();
+    this.load()
   },
   methods: {
     async load() {
@@ -67,23 +68,27 @@ export default {
         'https://cdnjs.loli.net/ajax/libs/amis/2.0.0/iconfont.min.css',
         // 'https://cdnjs.loli.net/ajax/libs/amis/2.0.0/helper.min.css', // probably not needed
         'https://cdnjs.loli.net/ajax/libs/font-awesome/6.1.1/css/solid.min.css', // fixed staticfile not font
-      ], 'amisCss');
-      await load('https://cdnjs.loli.net/ajax/libs/amis/2.0.0/sdk.min.js', 'amisJs');
+      ], 'amisCss')
+      await load('https://cdnjs.loli.net/ajax/libs/amis/2.0.0/sdk.min.js', 'amisJs')
 
-      const {amisRequire} = window;
+      const { amisRequire } = window
 
-      this._amis = amisRequire('amis/embed');
+      this._amis = amisRequire('amis/embed')
 
-      this.init();
+      this.init()
     },
     init() {
       this._amisInstance = this._amis.embed(this.$el,
-          this.amisSchema,
-          this.amisProps,
-          this.amisConfig,
-      );
+        this.amisSchema,
+        this.amisProps,
+        this.amisConfig,
+      )
       // console.log('amisSchema', this.amisSchema, this._amisInstance);
     },
   },
-};
+}
 </script>
+
+<template>
+  <div><slot /></div>
+</template>

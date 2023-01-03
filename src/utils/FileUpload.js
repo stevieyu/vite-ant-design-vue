@@ -1,7 +1,7 @@
-import random from 'lodash-es/random';
+import random from 'lodash-es/random'
 
-import imgHandle from './imgHandle';
-import {getUrl} from '@/utils/useRequest';
+import imgHandle from './imgHandle'
+import { getUrl } from '@/utils/useRequest'
 
 /**
  * xx
@@ -13,8 +13,8 @@ export default class {
    * @param {String} drive
    */
   constructor(uploadBasePath = '', drive = 'cos') {
-    this.setUploadBasePath(uploadBasePath);
-    this.drive = drive;
+    this.setUploadBasePath(uploadBasePath)
+    this.drive = drive
   }
 
   /**
@@ -23,8 +23,8 @@ export default class {
    * @return {this}
    */
   imgOptions(imgOptions) {
-    this.imgOptions = imgOptions;
-    return this;
+    this.imgOptions = imgOptions
+    return this
   }
 
   /**
@@ -33,8 +33,8 @@ export default class {
    * @return {this}
    */
   ajaxOptions(ajaxOptions) {
-    this.ajaxOptions = ajaxOptions;
-    return this;
+    this.ajaxOptions = ajaxOptions
+    return this
   }
 
   /**
@@ -43,8 +43,9 @@ export default class {
    * @return {Array}
    */
   fileToFiles(files) {
-    if (typeof files.length === 'undefined') files = [files];
-    return Array.from(files);
+    if (typeof files.length === 'undefined')
+      files = [files]
+    return Array.from(files)
   }
 
   /**
@@ -53,9 +54,10 @@ export default class {
    * @return {this}
    */
   onUploadProgress(callback) {
-    if (!this.ajaxOptions) this.ajaxOptions = {};
-    this.ajaxOptions.onUploadProgress = callback;
-    return this;
+    if (!this.ajaxOptions)
+      this.ajaxOptions = {}
+    this.ajaxOptions.onUploadProgress = callback
+    return this
   }
 
   /**
@@ -64,10 +66,11 @@ export default class {
    * @return {this}
    */
   setUploadBasePath(path) {
-    if (!path) path = '';
-    this.uploadBasePath = path;
-    this.uploadBasePath += !path || path.substr(-1) === '/' ? '' : '/';
-    return this;
+    if (!path)
+      path = ''
+    this.uploadBasePath = path
+    this.uploadBasePath += !path || path.substr(-1) === '/' ? '' : '/'
+    return this
   }
 
   /**
@@ -76,16 +79,18 @@ export default class {
    * @return {Promise<*>}
    */
   async uploadParameter(drive = null) {
-    if (drive) this.drive = drive;
+    if (drive)
+      this.drive = drive
     if (!this.upload_parameter) {
-      const {form, headers,
+      const {
+        form, headers,
         upload_url: uploadUrl,
         access_url: accessUrl,
-      } = await (await fetch(getUrl('supplier/upload'))).json();
-      this.upload_parameter = {form, uploadUrl, accessUrl, headers};
+      } = await (await fetch(getUrl('supplier/upload'))).json()
+      this.upload_parameter = { form, uploadUrl, accessUrl, headers }
     }
 
-    return this.upload_parameter;
+    return this.upload_parameter
     // throw Error("缺失获取上传参数配置");
   }
 
@@ -95,27 +100,27 @@ export default class {
    * @return {*}
    */
   handleUploadParameter(parameter = null) {
-    let {form, uploadUrl, accessUrl, headers} = parameter;
-    if (!accessUrl) accessUrl = uploadUrl;
-    if (accessUrl && accessUrl.substring(accessUrl.length - 1, accessUrl.length) !== '/') {
-      accessUrl += '/';
-    }
+    let { form, uploadUrl, accessUrl, headers } = parameter
+    if (!accessUrl)
+      accessUrl = uploadUrl
+    if (accessUrl && accessUrl.substring(accessUrl.length - 1, accessUrl.length) !== '/')
+      accessUrl += '/'
 
-    if (!this.ajaxOptions) this.ajaxOptions = {};
-    if (!(this.ajaxOptions.headers instanceof Object)) {
-      this.ajaxOptions.headers = {};
-    }
-    if (headers instanceof Object) {
-      Object.assign(this.ajaxOptions.headers, headers);
-    }
+    if (!this.ajaxOptions)
+      this.ajaxOptions = {}
+    if (!(this.ajaxOptions.headers instanceof Object))
+      this.ajaxOptions.headers = {}
+
+    if (headers instanceof Object)
+      Object.assign(this.ajaxOptions.headers, headers)
 
     Object.assign(parameter, {
       access_url: accessUrl,
       headers,
-      form: form,
+      form,
       upload_url: uploadUrl,
-    });
-    return parameter;
+    })
+    return parameter
   }
 
   /**
@@ -123,7 +128,7 @@ export default class {
    * @return {Promise<*>}
    */
   async getUploadParameter() {
-    return this.handleUploadParameter(await this.uploadParameter());
+    return this.handleUploadParameter(await this.uploadParameter())
   }
 
   /**
@@ -132,21 +137,22 @@ export default class {
    * @return {Promise<Array>}
    */
   async uploadStart(files) {
-    if (files) files = this.fileToFiles(files);
+    if (files)
+      files = this.fileToFiles(files)
 
-    const filesUrl = [];
-    for (let i = 0; i < files.length; i++) {
-      filesUrl.push(await this.uploadFile(files[i]));
-    }
-    return filesUrl;
+    const filesUrl = []
+    for (let i = 0; i < files.length; i++)
+      filesUrl.push(await this.uploadFile(files[i]))
+
+    return filesUrl
   }
 
   async loading(txt = '图片上传中') {
-    let l;
+    let l = txt
     const close = () => {
-      l = 1;
-    };
-    return {close, l};
+      l = 1
+    }
+    return { close, l }
   }
 
   /**
@@ -155,36 +161,37 @@ export default class {
    * @return {Promise<*>}
    */
   async uploadFile(file) {
-    const l = await this.loading();
+    const l = await this.loading()
 
     try {
-      let uploadPath = this.uploadBasePath;
-      const uploadParameter = await this.getUploadParameter();
-      const uploadForm = uploadParameter.form;
+      let uploadPath = this.uploadBasePath
+      const uploadParameter = await this.getUploadParameter()
+      const uploadForm = uploadParameter.form
 
-      if (this.imgOptions) {
-        file = await imgHandle(file, this.imgOptions);
-      }
+      if (this.imgOptions)
+        file = await imgHandle(file, this.imgOptions)
 
-      const filename = this.genFileName(file);
-      uploadPath += filename;
+      const filename = this.genFileName(file)
+      uploadPath += filename
 
-      const formData = new FormData();
-      formData.append('key', uploadPath);
+      const formData = new FormData()
+      formData.append('key', uploadPath)
       for (const key in uploadForm) {
-        if (!{}.hasOwnProperty.call(uploadForm, key)) continue;
-        formData.append(key, uploadForm[key]);
+        if (!{}.hasOwnProperty.call(uploadForm, key))
+          continue
+        formData.append(key, uploadForm[key])
       }
-      formData.append('file', file, filename);
+      formData.append('file', file, filename)
 
-      await this.post(uploadParameter.upload_url, formData, this.ajaxOptions);
+      await this.post(uploadParameter.upload_url, formData, this.ajaxOptions)
 
-      l.close();
+      l.close()
 
-      return uploadParameter.access_url + uploadPath;
-    } catch (e) {
-      l.close();
-      throw e;
+      return uploadParameter.access_url + uploadPath
+    }
+    catch (e) {
+      l.close()
+      throw e
     }
   }
 
@@ -196,8 +203,8 @@ export default class {
    * @return {Promise<unknown>}
    */
   post(url, body, options = {}) {
-    const xhr = new XMLHttpRequest();
-    Object.assign(xhr, options);
+    const xhr = new XMLHttpRequest()
+    Object.assign(xhr, options)
 
     // xhr.upload.onprogress = ({ lengthComputable, loaded, total }) => {
     //   if (lengthComputable) {
@@ -207,24 +214,26 @@ export default class {
     // };
 
     return new Promise((resolve, reject) => {
-      xhr.onreadystatechange = function() {
-        if (this.readyState !== 4) return;
+      xhr.onreadystatechange = function () {
+        if (this.readyState !== 4)
+          return
 
         if (this.status === 200) {
-          let res;
+          let res
           try {
-            res = JSON.parse(this.responseText);
-          } catch (e) {
-            resolve(this.responseText, this);
+            res = JSON.parse(this.responseText)
           }
-          resolve(res, this);
+          catch (e) {
+            resolve(this.responseText, this)
+          }
+          resolve(res, this)
         }
-        reject(new Error('上传失败'));
-      };
+        reject(new Error('上传失败'))
+      }
 
-      xhr.open('post', url, true);
-      xhr.send(body);
-    });
+      xhr.open('post', url, true)
+      xhr.send(body)
+    })
   }
 
   /**
@@ -233,12 +242,12 @@ export default class {
    * @return {string}
    */
   genFileName(file) {
-    const date = new Date();
-    const filename = `${date.getTime()}${random(1, 999)}`;
-    if (!file.name) {
-      return `${filename}.jpg`;
-    }
-    const ext = file.name.split('.').pop();
-    return `${filename}.${ext}`;
+    const date = new Date()
+    const filename = `${date.getTime()}${random(1, 999)}`
+    if (!file.name)
+      return `${filename}.jpg`
+
+    const ext = file.name.split('.').pop()
+    return `${filename}.${ext}`
   }
 }

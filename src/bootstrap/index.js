@@ -1,30 +1,31 @@
-import './polyfill';
+import './polyfill'
 
 // import './offlineNotice';
-import './req';
+import './req'
 
-import '../utils/finder';
+import '../utils/finder'
 
-import router from './router';
+import '@ant-design-vue/pro-layout/dist/style.css'
+import ProLayout, { PageContainer } from '@ant-design-vue/pro-layout'
 
-import antd from './antd';
-import icons from './icons';
-import '@ant-design-vue/pro-layout/dist/style.css';
-import ProLayout, {PageContainer} from '@ant-design-vue/pro-layout';
-import {useRoute} from 'vue-router';
+import { useRoute } from 'vue-router'
+import antd from './antd'
+import icons from './icons'
 
-export const isReady = router.isReady;
+import router from './router'
+
+export const isReady = router.isReady
 
 export default {
   async install(app) {
-    app.use(router);
+    app.use(router)
     app.config.globalProperties.$_append = (pathToAppend) => {
-      const path = useRoute().path;
-      return path + (path.endsWith('/') ? '' : '/') + pathToAppend;
-    };
+      const path = useRoute().path
+      return path + (path.endsWith('/') ? '' : '/') + pathToAppend
+    }
 
-    app.use(icons);
-    app.use(antd);
-    app.use(ProLayout).use(PageContainer);
+    app.use(icons)
+    app.use(antd)
+    app.use(ProLayout).use(PageContainer)
   },
-};
+}

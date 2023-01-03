@@ -1,22 +1,8 @@
-const IS_DEV = process.env.npm_lifecycle_event === 'dev';
+const IS_DEV = process.env.npm_lifecycle_event === 'dev'
 
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
-  },
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
   extends: [
-    'eslint:recommended',
-    'plugin:vue/vue3-essential',
-    '@vue/eslint-config-typescript',
-    'google',
+    '@antfu',
   ],
   rules: {
     'no-console': IS_DEV ? 0 : 2,
@@ -26,6 +12,7 @@ module.exports = {
     'max-len': 0,
     'no-prototype-builtins': 0,
     'require-jsdoc': 0,
+    'prefer-const': 0,
   },
   globals: {
     $ref: true,
@@ -39,4 +26,4 @@ module.exports = {
     $msg: true,
     $api: true,
   },
-};
+}

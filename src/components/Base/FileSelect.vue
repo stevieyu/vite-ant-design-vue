@@ -1,21 +1,5 @@
-<template>
-  <div class="file-select" @click="click" :loading="loading">
-    <UploadOutlined v-if="multiple || (!multiple && !modelValue)"/>
-    <slot :urls="filesObjectUrls" />
-    <input
-      ref="file"
-      class="file-input"
-      :accept="accept"
-      :disabled="disabled"
-      :multiple="multiple"
-      type="file"
-      @change="onChange"
-    />
-  </div>
-</template>
-
 <script>
-import {createObjectURL, default as imgHandle} from '@/utils/imgHandle';
+import imgHandle, { createObjectURL } from '@/utils/imgHandle'
 
 export default {
   props: {
@@ -41,46 +25,66 @@ export default {
     return {
       files: [],
       loading: false,
-    };
+    }
   },
   computed: {
     filesObjectUrls() {
-      const files = this.files.map((i) => createObjectURL(i));
+      const files = this.files.map(i => createObjectURL(i))
 
-      if (!this.multiple) return files[0] || '';
+      if (!this.multiple)
+        return files[0] || ''
 
-      return files;
+      return files
     },
   },
   methods: {
     click(e) {
-      if (this.disabled) return;
-      this.$refs.file.click();
+      if (this.disabled)
+        return
+      this.$refs.file.click()
     },
     async onChange(event) {
-      const files = [...event.target.files];
-      if (!files.length) return;
-      this.$refs.file.value = '';
+      const files = [...event.target.files]
+      if (!files.length)
+        return
+      this.$refs.file.value = ''
 
-      for (let [index, file] of new Map( files.map( ( item, i ) => [i, item] ) )) {
-        if (!file) continue;
+      for (let [index, file] of new Map(files.map((item, i) => [i, item]))) {
+        if (!file)
+          continue
         file = await imgHandle(file, {
           maxWidth: 1000,
           maxHeight: 1000,
-        });
-        files.splice(index, 1, file);
+        })
+        files.splice(index, 1, file)
       }
 
-      this.files = files;
+      this.files = files
 
-      if ({}.propertyIsEnumerable.call(this, 'filesHandle')) {
-        return this.filesHandle(files);
-      }
-      this.$emit('update:modelValue', this.multiple ? files : files[0] || null);
+      if ({}.propertyIsEnumerable.call(this, 'filesHandle'))
+        return this.filesHandle(files)
+
+      this.$emit('update:modelValue', this.multiple ? files : files[0] || null)
     },
   },
-};
+}
 </script>
+
+<template>
+  <div class="file-select" :loading="loading" @click="click">
+    <UploadOutlined v-if="multiple || (!multiple && !modelValue)" />
+    <slot :urls="filesObjectUrls" />
+    <input
+      ref="file"
+      class="file-input"
+      :accept="accept"
+      :disabled="disabled"
+      :multiple="multiple"
+      type="file"
+      @change="onChange"
+    >
+  </div>
+</template>
 
 <style lang="scss">
 .file-select {
