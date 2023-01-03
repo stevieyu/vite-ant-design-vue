@@ -6,6 +6,7 @@ specifiers:
   '@antfu/eslint-config': latest
   '@commitlint/cli': latest
   '@commitlint/config-conventional': latest
+  '@tanstack/vue-query': ^4.20.5
   '@vitejs/plugin-vue': ^4.0.0
   '@vitejs/plugin-vue-jsx': ^3.0.0
   '@vueuse/core': ^9.3.1
@@ -33,6 +34,7 @@ specifiers:
 dependencies:
   '@ant-design-vue/pro-layout': 3.2.3
   '@ant-design/icons-vue': 6.1.0_vue@3.2.45
+  '@tanstack/vue-query': 4.20.5_vue@3.2.45
   '@vueuse/core': 9.9.0_vue@3.2.45
   ant-design-vue: 3.2.15_vue@3.2.45
   dayjs: 1.11.7
@@ -1052,6 +1054,33 @@ packages:
     dependencies:
       core-js: 3.27.1
       nanopop: 2.2.0
+    dev: false
+
+  /@tanstack/match-sorter-utils/8.7.2:
+    resolution: {integrity: sha512-bptNeoexeDB947fWoCPwUchPSx5FA9gwzU0bkXz0du5pT8Ud2+1ob+xOgHj6EF3VN0kdXtLhwjPyhY7/dJglkg==}
+    engines: {node: '>=12'}
+    dependencies:
+      remove-accents: 0.4.2
+    dev: false
+
+  /@tanstack/query-core/4.20.4:
+    resolution: {integrity: sha512-lhLtGVNJDsJ/DyZXrLzekDEywQqRVykgBqTmkv0La32a/RleILXy6JMLBb7UmS3QCatg/F/0N9/5b0i5j6IKcA==}
+    dev: false
+
+  /@tanstack/vue-query/4.20.5_vue@3.2.45:
+    resolution: {integrity: sha512-F+ybKBN6GAlSRYAYQmFVBZm6ASi7I7OYozobXvObGLxPuE33bxgp2UEnAlQmHFrzhH7okWM2gPDbCPASkcqk3A==}
+    peerDependencies:
+      '@vue/composition-api': ^1.1.2
+      vue: ^2.5.0 || ^3.0.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      '@tanstack/match-sorter-utils': 8.7.2
+      '@tanstack/query-core': 4.20.4
+      '@vue/devtools-api': 6.4.5
+      vue: 3.2.45
+      vue-demi: 0.13.11_vue@3.2.45
     dev: false
 
   /@tsconfig/node10/1.0.9:
@@ -4283,6 +4312,10 @@ packages:
       jsesc: 0.5.0
     dev: false
     optional: true
+
+  /remove-accents/0.4.2:
+    resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
+    dev: false
 
   /require-directory/2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}

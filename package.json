@@ -21,6 +21,7 @@
     "string-similarity": "^4.0.4",
     "vue": "^3.2.41",
     "vue-request": "^2.0.0-rc.4",
+    "@tanstack/vue-query": "^4.20.5",
     "vue-router": "^4.1.6",
     "vue-types": "^5.0.1",
     "vuedraggable": "^4.1.0",

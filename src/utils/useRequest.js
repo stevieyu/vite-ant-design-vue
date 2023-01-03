@@ -1,4 +1,6 @@
 import { usePagination, useRequest } from 'vue-request'
+// https://tanstack.com/query/v4/docs/vue/installation
+// import { useQuery } from "@tanstack/vue-query";
 import stringify from 'qs/lib/stringify'
 
 const getHeaders = () => new Headers({
