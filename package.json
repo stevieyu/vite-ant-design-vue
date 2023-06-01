@@ -31,7 +31,7 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "sass": "^1.42.1",
-    "unocss": "^0.51.8",
+    "unocss": "^0.52.7",
     "vite": "^4.0.0",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-pages": "^0.29.0",
