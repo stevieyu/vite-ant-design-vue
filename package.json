@@ -19,7 +19,7 @@
     "loadjs": "^4.2.0",
     "qs": "^6.11.2",
     "string-similarity": "^4.0.4",
-    "vue": "^3.2.41",
+    "vue": "^3.3.7",
     "vue-request": "^2.0.0-rc.4",
     "@tanstack/vue-query": "^4.20.5",
     "vue-router": "^4.1.6",
