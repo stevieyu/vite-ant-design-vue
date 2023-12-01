@@ -10,7 +10,7 @@
     "d": "git pull && npm run build"
   },
   "dependencies": {
-    "@ant-design-vue/pro-layout": "^3.2.4",
+    "@ant-design-vue/pro-layout": "^3.2.5",
     "@ant-design/icons-vue": "^6.0.1",
     "@vueuse/core": "^10.1.0",
     "ant-design-vue": "^4.0.6",
