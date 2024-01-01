@@ -42,8 +42,8 @@ dependencies:
     specifier: ^3.3.9
     version: 3.3.9(typescript@5.2.2)
   vue-request:
-    specifier: ^2.0.0-rc.4
-    version: 2.0.0-rc.4(vue@3.3.9)
+    specifier: ^2.0.4
+    version: 2.0.4(vue@3.3.9)
   vue-router:
     specifier: ^4.1.6
     version: 4.1.6(vue@3.3.9)
@@ -5747,8 +5747,9 @@ packages:
     dev: false
     optional: true
 
-  /vue-request@2.0.0-rc.4(vue@3.3.9):
-    resolution: {integrity: sha512-Nv/CpfKlfwW9SVHakEukeSQpuqSwskeJsHK4gfw8KB8NZogWfR8+EU+XupLe+Dapnm+RAP+wZYzhw89v3Zyx2g==}
+  /vue-request@2.0.4(vue@3.3.9):
+    resolution: {integrity: sha512-+Tu5rDy6ItF9UdD21Mmbjiq5Pq6NZSN9juH72hNQTMn1whHh4KZPTKWVLK2YS4nzbuEnPs+82G91AA2Fgd93mg==}
+    engines: {node: '>=14'}
     peerDependencies:
       '@vue/composition-api': ^1.0.0-rc.1
       vue: ^2.0.0 || >=3.0.0
