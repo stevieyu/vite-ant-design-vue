@@ -15,7 +15,7 @@
     "@vueuse/core": "^10.1.0",
     "ant-design-vue": "^4.0.6",
     "dayjs": "^1.11.9",
-    "ky": "^0.33.2",
+    "ky": "^1.2.3",
     "loadjs": "^4.2.0",
     "qs": "^6.11.2",
     "string-similarity": "^4.0.4",
